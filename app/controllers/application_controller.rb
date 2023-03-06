@@ -24,6 +24,6 @@ rescue_from ActiveRecord::RecordNotFound, with: :render_not_found
 
     def authorize
       @user = User.find_by(id: session[:user_id])
-      render json: {errors: "User not logged in"}, status: :unauthorized unless @user
+      render json: {errors: ["User not logged in"]}, status: :unauthorized unless @user
     end
 end
