@@ -1,7 +1,7 @@
-import React from 'react';
+import React, {useState} from 'react'
 
-function SignIn() {
-
+function SignIn({ setUser }) {
+    console.log("setUser from Signin", setUser)
 
         const initialData = {
             name:'',
@@ -9,7 +9,7 @@ function SignIn() {
             password: '',
         }
 
-// const [formData, setFormdata] = useState(initialData)
+const [formData, setFormdata] = useState(initialData)
 
 // function handleFormChange(e) {
 //     const {name, value} = e.target;
@@ -32,52 +32,55 @@ function SignIn() {
 //     .then(setFormdata(initialData))
 // }
 
+const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const [errors, setErrors] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    setIsLoading(true);
+    fetch("/login", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ username, password }),
+    }).then((r) => {
+      setIsLoading(false);
+      if (r.ok) {
+        r.json().then((user) => setUser(user));
+      } else {
+        r.json().then((err) => setErrors(err.errors));
+      }
+    });
+  }
+
+
 return (
 
     <div class="ui equal width grid">
     <div class="column">
-        <div>
-        <img src="/images/theRules.svg" alt="placeholder" />
-        </div>
     </div>
     <div class="eight wide column">
         <div class="ui segment">
-        <form class="ui form" >
+        <form class="ui form" onSubmit={handleSubmit}>
         <div class="ui one column">
         <div >
             <div class="one field">
                 <div class="field">
-                <label>Your Name</label>
-                <input value= {formData.name} type="text" name="name" placeholder="Name" required />
+                <label>Username</label>
+                <input value= {username} type="text" name="username" placeholder="username" required onChange={(e)=>setUsername(e.target.value)}/>
                 </div>
                 <div class="field">
-                <label>Superlative </label>
-                <input value= {formData.superlative} type="text" name="superlative" placeholder="Most likely to..."required />
+                <label>Password </label>
+                <input value= {password} type="text" name="password" placeholder="password"required onChange={(e)=>setPassword(e.target.value)}/>
                 </div>
-                <div class="field">
-                <label>Year </label>
-                <input value= {formData.year} type="number" name="year" placeholder="year" required />
-                </div>
-                <div class="field">
-                <label>Headshot Photo</label>
-                <input value= {formData.headshot_photo} type="text" name="headshot_photo" placeholder="headshot photo"required  />
-                </div>
-                <div class="field">
-                <label>How many parties have you been to?: </label>
-                <input value= {formData.number_of_parties} type="number" name="number_of_parties" placeholder="number_of_parties" required  />
-                <br></br>
             </div>
-
-            </div>
-            <button class="ui pink button" type="submit">Submit</button>
+            <button class="ui button" type="submit">Login</button>
             </div>
         </div>
     </form>
-        </div>
-    </div>
-    <div class="column">
-        <div>
-        <img src="/images/rules2.svg" alt="placeholder" />
         </div>
     </div>
     </div>

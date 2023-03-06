@@ -4,7 +4,7 @@ skip_before_action :authorize, only: :create
 
     def create
         @user = User.create!(user_params)
-        session[:user_id] = user.id 
+        session[:user_id] = @user.id 
         render json: @user, status: :created
     end
 
@@ -15,7 +15,7 @@ skip_before_action :authorize, only: :create
     private 
 
     def user_params 
-        params.permit(:name, :email, :password, :password_cofirmation, :bio, :age, :location, :photo)
+        params.permit(:name, :email, :username, :password, :password_confirmation, :bio, :age, :location, :photo)
     end
 
 end

@@ -1,87 +1,97 @@
-import React from "react";
+import React, { useState } from "react";
 
-function SignupForm() {
+function SignUpForm({ setUser, setErrors }) {
+    const initialData = {
+        name:'',
+        username: '',
+        email:'',        
+        password:'',
+        password_confirmation: '',
+        bio:'',
+        location:'',
+        age:'',
+        photo: '',
+        activity:'',
+    }
 
-//     const initialData = {
-//         name:'',
-//         email:'',
-//         password: '',
-//         bio:'',
-//         location:'',
-//         age:'',
-//         photo: '',
-//         activity:'',
-//     }
+const [formData, setFormData] = useState(initialData)
 
-// const [formData, setFormdata] = useState(initialData)
+function handleFormChange(e) {
+    const {name, value} = e.target;
+    setFormData({...formData, [name]: value})
+}
 
-// function handleFormChange(e) {
-// const {name, value} = e.target;
-// setFormdata({...formData, [name]: value})
-// }
+function handleFormSubmit (e) {
+    e.preventDefault();
 
-// function handleFormSubmit (e) {
-// e.preventDefault();
-
-// fetch(), {
-// method: 'POST',
-// headers: {
-//     'Content-Type': 'application/json',
-// },
-// body: JSON.stringify(formData),
-// })
-// .then((response) => response.json())
-// .then(onMeanieSubmit)
-
-// .then(setFormdata(initialData))
-// }
+    fetch("/signup", {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+        })
+        .then(res => {
+            if (res.ok){
+                res.json().then(user => setUser(user))
+            } else {
+                res.json().then(errors => setErrors(errors.errors))
+            }
+        })
+        // .then(onMeanieSubmit)
+        .then(setFormData(initialData))
+}
 
 return (
-
 <div class="ui equal width grid">
 <div class="column">
-    <div>
-    <img src="/images/theRules.svg" alt="placeholder" />
-    </div>
 </div>
 <div class="eight wide column">
     <div class="ui segment">
-    <form class="ui form">
+    <form class="ui form" onSubmit={handleFormSubmit}>
     <div class="ui one column">
     <div >
         <div class="one field">
             <div class="field">
             <label> Name</label>
-            <input value= {formData.name} type="text" name="name" placeholder="Name" required />
+            <input value= {formData.name} type="text" name="name" placeholder="Name" onChange={handleFormChange}/>
+            </div>
+            <div class="field">
+            <label> Username</label>
+            <input value= {formData.username} type="text" name="username" placeholder="Username" onChange={handleFormChange}/>
             </div>
             <div class="field">
             <label>Email address </label>
-            <input value= {formData.email} type="text" name="email" placeholder="Email address"  required />
+            <input value= {formData.email} type="text" name="email" placeholder="Email address" onChange={handleFormChange}/>
             </div>
             <div class="field">
             <label>Password </label>
-            <input value= {formData.password} type="text" name="password" placeholder="Password"  required />
+            <input value= {formData.password} type="text" name="password" placeholder="Password" onChange={handleFormChange}/>
+            </div>
+            <div class="field">
+            <label>Password Confirmation </label>
+            <input value= {formData.password_confirmation} type="text" name="password_confirmation" placeholder="Confirm Password"  onChange={handleFormChange}/>
             </div>
             <div class="field">
             <label>Bio </label>
-            <input value= {formData.bio} type="text" name="bio" placeholder="About me" required />
+            <input value= {formData.bio} type="text" name="bio" placeholder="About me" onChange={handleFormChange}/>
             </div>
             <div class="field">
             <label>Location </label>
-            <input value= {formData.location} type="number" name="location" placeholder="location" required  />
+            <input value= {formData.location} type="number" name="location" placeholder="location" onChange={handleFormChange} />
             </div>
             <div class="field">
             <label>Age </label>
-            <input value= {formData.age} type="number" name="age" placeholder="age" required  />
+            <input value= {formData.age} type="number" name="age" placeholder="age" onChange={handleFormChange}  />
             </div>
             <div class="field">
             <label>Photo</label>
-            <input value= {formData.headshot_photo} type="text" name="photo" placeholder="photo" required  />
+            <input value= {formData.headshot_photo} type="text" name="photo" placeholder="photo" onChange={handleFormChange}  />
             </div>
-            <div class="field">
+            {/* <div class="field">
             <label>Activity</label>
-            <input value= {formData.activity} type="text" name="activity" placeholder="activity" required  />
-            </div>
+            <input value= {formData.activity} type="text" name="activity" placeholder="activity" onChange={handleFormChange}  />
+            </div> */}
         </div>
         <button class="ui button" type="submit">Submit</button>
         </div>
@@ -93,4 +103,4 @@ return (
 )
 }
 
-export default SignupForm;
+export default SignUpForm;
