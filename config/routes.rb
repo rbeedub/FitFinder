@@ -9,8 +9,8 @@ Rails.application.routes.draw do
 
     # route to test your configuration
     get '/hello', to: 'application#hello_world'
-    get '/signup', to: 'users#create'
+    post '/signup', to: 'users#create'
     get '/me', to: 'users#show'
-    get '/login', to: 'sessions#create'
-    get '/logout', to: 'sessions#destroy'
+    post '/login', to: 'sessions#create'
+    delete '/logout', to: 'sessions#destroy'
 end
