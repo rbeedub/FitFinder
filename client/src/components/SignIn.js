@@ -65,7 +65,7 @@ return (
     <div class="eight wide column">
         <div class="ui segment">
         <form class="ui form" onSubmit={handleSubmit}>
-        <div class="ui one column">
+        <div class="ui one column ">
         <div >
             <div class="one field">
                 <div class="field">
