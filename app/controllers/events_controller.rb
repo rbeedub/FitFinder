@@ -32,7 +32,7 @@ class EventsController < ApplicationController
     end
 
     def event_params
-        params.permit(:location_name, :location_zip, :date_time, :recurring, :description, :participants, :host_id, :activity)
+        params.permit(:location_name, :location_zip, :date_time, :recurring, :description, :participants, :host_id, :activity_id)
     end
 
 end

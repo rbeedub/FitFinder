@@ -11,7 +11,7 @@ class ResponsesController < ApplicationController
     end
 
     def update
-        @response.update(response_params)f
+        @response.update(response_params)
         render json: @response, status: :accepted
     end
     

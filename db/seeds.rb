@@ -30,6 +30,17 @@ Activity.destroy_all
         photo: Faker::LoremFlickr.image)
 end
 
+User.create(
+    name: "Michael Scott",
+    email: "mscott@dundermifflin.com",
+    age: 45, 
+    username: "chaotic_evil",
+    password_digest: BCrypt::Password.create("Michael123!"),
+    bio: "World's Greatest Boss",
+    location_zip: 18503,
+    location_name: "Scranton, PA"
+)
+
 # Activity
 activities = ["pickleball", "pilates", "zumba", "basketball", "running", "swimming", "weights", "leg day", "yoga", "HIIT", "crossfit", "tennis", "kickball", "badminton"]
 activities.each do |a|
@@ -77,4 +88,12 @@ end
 
 Event.all.each do |e|
     SkillLevel.create(skillable: e, skill_level: levels.sample)
+end
+
+# Likes
+User.all.each do |u|
+    count = (0..10).to_a.sample
+    count.times do 
+        Like.create(liker: u, liked: User.all.sample)
+    end
 end
