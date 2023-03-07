@@ -1,7 +1,8 @@
 class CreateEvents < ActiveRecord::Migration[7.0]
   def change
     create_table :events do |t|
-      t.string :location
+      t.string :location_name
+      t.integer :location_zip
       t.datetime :date_time
       t.boolean :recurring
       t.text :description

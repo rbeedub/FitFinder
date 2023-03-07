@@ -1,10 +1,10 @@
 Rails.application.routes.draw do
-  resources :skill_levels
-  resources :user_activities
-  resources :activities
+  resources :skill_levels, only: [:show, :create, :update]
+  resources :user_activities, only: [:create, :destroy]
+  resources :activities, only: [:index, :show]
   resources :events
-  resources :likes
-  resources :responses
+  resources :likes, only: [:show, :update]
+  resources :responses, only: [:show, :create, :update]
   get 'sessions/create'
   get 'sessions/destroy'
   resources :users
