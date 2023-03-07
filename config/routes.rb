@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  resources :skill_levels
+  resources :user_activities
+  resources :activities
+  resources :events
+  resources :likes
+  resources :responses
   get 'sessions/create'
   get 'sessions/destroy'
   resources :users
