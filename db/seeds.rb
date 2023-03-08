@@ -23,7 +23,7 @@ Activity.destroy_all
         email: Faker::Internet.unique.email,
         age: Faker::Number.between(from: 18, to: 80),  
         username: Faker::Internet.unique.username, 
-        password_digest: Faker::Internet.password, 
+        password_digest: BCrypt::Password.create(Faker::Internet.password(min_length: 10, max_length: 20, mix_case: true, special_characters: true)), 
         bio: Faker::Lorem.paragraph(sentence_count: 2), 
         location_zip: Faker::Address.postcode, 
         location_name: Faker::Address.city,  
@@ -35,10 +35,12 @@ User.create(
     email: "mscott@dundermifflin.com",
     age: 45, 
     username: "chaotic_evil",
-    password_digest: BCrypt::Password.create("Michael123!"),
+    #password_digest: BCrypt::Password.create("Michael123!"),
+    password_digest: #{User.digest("Michael123!")} ),
     bio: "World's Greatest Boss",
     location_zip: 18503,
-    location_name: "Scranton, PA"
+    location_name: "Scranton, PA",
+    photo: "./public/images/31.svg"
 )
 
 # Activity

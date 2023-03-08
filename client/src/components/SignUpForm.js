@@ -8,7 +8,8 @@ function SignUpForm({ setUser, setErrors }) {
         password:'',
         password_confirmation: '',
         bio:'',
-        location:'',
+        location_zip:'',
+        location_name: '',
         age:'',
         photo: '',
         activity:'',
@@ -45,6 +46,8 @@ function handleFormSubmit (e) {
 return (
 <div class="ui equal width grid">
 <div class="column">
+<div class="ui basic segment">
+</div>
 </div>
 <div class="eight wide column">
     <div class="ui segment">
@@ -77,8 +80,12 @@ return (
             <input value= {formData.bio} type="text" name="bio" placeholder="About me" onChange={handleFormChange}/>
             </div>
             <div class="field">
-            <label>Location </label>
-            <input value= {formData.location} type="number" name="location" placeholder="location" onChange={handleFormChange} />
+            <label>Zip Code </label>
+            <input value= {formData.location_zip} type="number" name="location_zip" placeholder="location" onChange={handleFormChange} />
+            </div>
+            <div class="field">
+            <label>City</label>
+            <input value= {formData.location_name} type="text" name="location_name" placeholder="location" onChange={handleFormChange} />
             </div>
             <div class="field">
             <label>Age </label>
@@ -99,8 +106,15 @@ return (
 </form>
     </div>
 </div>
+    <div class="column">
+    <div class="ui basic segment">
+
+    </div>
+    </div>
 </div>
 )
 }
 
 export default SignUpForm;
+
+
