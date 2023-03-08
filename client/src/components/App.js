@@ -5,6 +5,7 @@ import { useState } from 'react'
 import NavBar from './NavBar'
 import Events from './Events'
 import EventDetails from './EventDetails'
+import EditProfile from './EditProfile'
 
 function App() {
 
@@ -64,11 +65,11 @@ function App() {
             events={events}
             />
           </Route>
-          <Route path="/">
+          <Route exact path="/">
             <Events user={user} events={events} />
           </Route>
-          <Route path="/">
-            {/* <RecipeList /> */}
+          <Route path="/edit-profile">
+            <EditProfile user={user} setUser={setUser}/>
           </Route>
         </Switch>
       </main>
