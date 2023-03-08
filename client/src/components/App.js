@@ -7,6 +7,7 @@ import Events from './Events'
 import EventDetails from './EventDetails'
 import EditProfile from './EditProfile'
 import AllPeople from './AllPeople'
+import CreateEvent from "./CreateEvent";
 
 function App() {
 
@@ -65,6 +66,9 @@ function App() {
           <Route path="/all_people">
             <AllPeople
             people={people} setPeople={setPeople} />
+          </Route>
+          <Route path="/create_event">
+            <CreateEvent/>
           </Route>
         <Route path="/event_details/:id">
             <EventDetails
