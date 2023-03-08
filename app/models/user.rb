@@ -19,9 +19,15 @@ class User < ApplicationRecord
     validates :name, :username, :age, :location_zip, :location_name, :bio, :photo, presence: true
     validates :username, presence: true, uniqueness: true 
     validates :age, numericality: {greater_than_or_equal_to: 18, less_than_or_equal_to: 100}
-    validates :password, length: {minimum: 8}
-    validates :password, format: { with: /[A-Z]/, message: "must contain at least one uppercase letter" }
-    validates :password, format: { with: /[a-z]/, message: "must contain at least one lowercase letter" }
-    validates :password, format: { with: /[\S&&[\D]&&[^a-zA-Z]]/, message: "must contain at least one special character" }
+    #validates :password, length: {minimum: 8}
+    #validates :password, format: { with: /[A-Z]/, message: "must contain at least one uppercase letter" }
+    #validates :password, format: { with: /[a-z]/, message: "must contain at least one lowercase letter" }
+    #validates :password, format: { with: /[\S&&[\D]&&[^a-zA-Z]]/, message: "must contain at least one special character" }
 
+
+    def User.digest(string)
+        cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST :
+                                                      BCrypt::Engine.cost
+        BCrypt::Password.create(string, cost: cost)
+      end
 end
