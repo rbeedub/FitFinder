@@ -4,6 +4,7 @@ import SignInPage from './SignInPage'
 import { useState } from 'react'
 import NavBar from './NavBar'
 import Events from './Events'
+import EventDetails from './EventDetails'
 
 function App() {
 
@@ -58,6 +59,11 @@ function App() {
       <NavBar user={user} setUser={setUser} />
       <main>
         <Switch>
+        <Route path="/event_details">
+            <EventDetails
+            events={events}
+            />
+          </Route>
           <Route path="/">
             <Events user={user} events={events} />
           </Route>

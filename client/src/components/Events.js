@@ -5,15 +5,16 @@ import CreateEvent from "./CreateEvent";
 
 function Events({ events }) {
 return (
-<>
-  <div>
-{/* Put two columns here  */}
-    < SideMenu /> 
+
+<div class="ui grid">
+    <div class="four wide column">
+    < SideMenu />
+    </div>
+    <div class="twelve wide column">
     < EventsContainer events={events} />
-    {/* "Create event" button here */}
-    <CreateEvent />
-</div>
-</>
+  </div>
+  </div>
+
 )
 }
 
