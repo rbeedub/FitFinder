@@ -11,12 +11,12 @@ function SignInPage ({ setUser }){
         <div>
             {showLogin ? <>
                 <SignIn setUser = {setUser} setErrors={setErrors}/> 
-                <button onClick={() => setShowLogin(false)}>Show Sign up</button>
+                <button onClick={() => setShowLogin(!showLogin)}>Show Sign up</button>
             </>
                 
             : <>
                 <SignUpForm setUser={setUser} setErrors={setErrors}/> 
-                <button onClick={() => setShowLogin(true)}>Show Log in</button>
+                <button onClick={() => setShowLogin(!showLogin)}>Show Log in</button>
             </> 
             }       
             
