@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
 
-function SignIn({ setUser }) {
+function SignIn({ setUser, setErrors }) {
     console.log("setUser from Signin", setUser)
 
         const initialData = {
@@ -34,7 +34,7 @@ const [formData, setFormdata] = useState(initialData)
 
 const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const [errors, setErrors] = useState([]);
+//   const [errors, setErrors] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
 
   function handleSubmit(e) {
@@ -87,7 +87,6 @@ return (
   </div>
   <div class="column">
     <div class="ui basic segment">
-
     </div>
   </div>
 </div>

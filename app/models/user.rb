@@ -16,12 +16,12 @@ class User < ApplicationRecord
 
     has_secure_password
 
-    #validates :name, :username, :age, :location_zip, :location_name, :bio, :photo, presence: true
-    #validates :username, presence: true, uniqueness: true 
-    #validates :age, numericality: {greater_than_or_equal_to: 18, less_than_or_equal_to: 100}
-    #validates :password, length: {minimum: 8}
-    #validates :password, format: { with: /[A-Z]/, message: "must contain at least one uppercase letter" }
-    #validates :password, format: { with: /[a-z]/, message: "must contain at least one lowercase letter" }
-    #validates :password, format: { with: /[\S&&[\D]&&[^a-zA-Z]]/, message: "must contain at least one special character" }
+    validates :name, :username, :age, :location_zip, :location_name, :bio, :photo, :email, presence: true
+    validates :username, presence: true, uniqueness: true 
+    validates :age, numericality: {greater_than_or_equal_to: 18, less_than_or_equal_to: 100}
+    #validates :password, length: {minimum: 1}
+    # validates :password, format: { with: /[A-Z]/, message: "must contain at least one uppercase letter" }
+    # validates :password, format: { with: /[a-z]/, message: "must contain at least one lowercase letter" }
+    # validates :password, format: { with: /[\S&&[\D]&&[^a-zA-Z]]/, message: "must contain at least one special character" }
 
 end
