@@ -1,17 +1,17 @@
 import React from "react";
 import EditProfileForm from "./EditProfileForm";
-import FitFriendDetailsForm from "./FitFriendDetailsForm";
+import FitFriendDetails from "./FitFriendDetails";
 
-function EditProfile() {
-return(
-<>
+function EditProfile({ user, setUser }) {
+    return(
+        <>
 
-<h1>user card details render here</h1>
-<FitFriendDetails />
-<EditProfileForm />
+            <h1>user card details render here</h1>
+            <FitFriendDetails />
+            <EditProfileForm user={user} setUser={setUser}/>
 
-</>
-)
+        </>
+    )
 }
 
 export default EditProfile;
