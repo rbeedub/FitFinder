@@ -59,12 +59,14 @@ const [username, setUsername] = useState("");
 
 return (
 
-    <div class="ui equal width grid">
-    <div class="column">
+<div class="ui equal width grid">
+  <div class="column">
+    <div class="ui basic segment">
     </div>
-    <div class="eight wide column">
-        <div class="ui segment">
-        <form class="ui form" onSubmit={handleSubmit}>
+  </div>
+  <div class="eight wide column">
+    <div class="ui segment">
+    <form class="ui form" onSubmit={handleSubmit}>
         <div class="ui one column ">
         <div >
             <div class="one field">
@@ -81,9 +83,16 @@ return (
             </div>
         </div>
     </form>
-        </div>
     </div>
+  </div>
+  <div class="column">
+    <div class="ui basic segment">
+
     </div>
+  </div>
+</div>
+
+
 
     )
     }

@@ -45,6 +45,8 @@ function handleFormSubmit (e) {
 return (
 <div class="ui equal width grid">
 <div class="column">
+<div class="ui basic segment">
+</div>
 </div>
 <div class="eight wide column">
     <div class="ui segment">
@@ -99,8 +101,15 @@ return (
 </form>
     </div>
 </div>
+    <div class="column">
+    <div class="ui basic segment">
+
+    </div>
+    </div>
 </div>
 )
 }
 
 export default SignUpForm;
+
+
