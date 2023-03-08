@@ -1,11 +1,18 @@
 import React from "react";
-import SideMenu from "./SideMenu";
 import EventCommentForm from "./EventCommentForm";
 import AttendanceCard from "./AttendanceCard";
 
-function EventDetailsContainer( {event_name, date_time, description, participants, location_name,location_zip, host_id, activity} ) {
+function EventDetailsContainer({ removeFromEvents, user, event_name, date_time, description, participants, location_name,location_zip, host_id, activity, id, host }) {
+
+function deleteEvent(e){
+    fetch(`/events/${id}`, {method: "DELETE"})
+    .then(() => removeFromEvents(id))
+}
+
 return(
 <>
+{user.id == host.id ? <button class="ui button" onClick={deleteEvent}> Delete Event </button> : null }
+{/* <button class="ui button"> Delete Event </button>  */}
 <div class="ui segments">
 <div class="ui segment">
 <h5 class="header">{event_name}</h5>
@@ -23,9 +30,11 @@ return(
 </div>
 </div>
 
+
 <div class="ui segment">
     <p>Hosted by:{host_id} </p>
 </div>
+{user.id == host.id ? <button class="ui button"> Edit Event </button> : null}
 </div>
 <div class="ui segment">
 </div>

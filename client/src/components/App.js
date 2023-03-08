@@ -24,30 +24,22 @@ function App() {
         r.json().then((user) => setUser(user));
       }
     });
-  }, []);
 
-
-  useEffect(() => {
-    // auto-login
+   // get users
     fetch("/users").then((r) => {
       if (r.ok) {
         r.json().then((data) => setPeople(data));
       }
     });
-  }, []);
-
-  useEffect(() => {
-    // auto-login
+    
+    // get events
     fetch("/events").then((r) => {
       if (r.ok) {
         r.json().then((data) => setEvents(data));
       }
     });
-  }, []);
 
-
-  useEffect(() => {
-    // auto-login
+    // get activities
     fetch("/activities").then((r) => {
       if (r.ok) {
         r.json().then((data) => console.log("activities", data));
@@ -55,6 +47,16 @@ function App() {
     });
   }, []);
 
+
+  function onEventSubmit(newEvent) {
+    setEvents([...events, newEvent])
+  }
+
+  function removeFromEvents(idObj){
+    console.log(`Delete me!`)
+    const removeEvent = events.filter(event => event.id !== idObj)
+    setEvents(removeEvent)
+  }
 
   if (!user) return <SignInPage setUser = {setUser}/>;
 
@@ -68,11 +70,16 @@ function App() {
             people={people} setPeople={setPeople} />
           </Route>
           <Route path="/create_event">
-            <CreateEvent/>
+            <CreateEvent
+          onEventSubmit={onEventSubmit}
+          user={user}
+            />
           </Route>
         <Route path="/event_details/:id">
             <EventDetails
             events={events}
+            removeFromEvents={removeFromEvents}
+            user={user}
             />
           </Route>
           <Route exact path="/">
