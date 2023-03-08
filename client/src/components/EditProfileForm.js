@@ -1,10 +1,13 @@
 import React, { useState } from "react";
 import { useHistory } from 'react-router-dom'
+import ErrorMsgList from "./ErrorMsgList";
+import ProfileUpdatedMsg from "./ProfileUpdatedMsg";
 
 function EditProfileForm({ user, setUser }) {
 
     const [formData, setFormData] = useState(user)
     const [errors, setErrors] = useState([])
+    const [profileUpdated, setProfileUpdated] = useState(false)
     let history = useHistory()
 
     function handleFormSubmit(e){
@@ -21,10 +24,16 @@ function EditProfileForm({ user, setUser }) {
             if(r.ok){
                 r.json().then(data => {
                     setUser(data)
-                    history.push("/")
+                    setProfileUpdated(true)
+                    setErrors([])
+                    // history.push("/")
                 })
             } else {
-                r.json().then(data => setErrors(data))
+                r.json().then(err => {
+                    setProfileUpdated(false)
+                    setErrors(err.errors)
+                    setFormData(user)
+                })
             }
         })
     }
@@ -46,6 +55,8 @@ function EditProfileForm({ user, setUser }) {
 
     return(
         <>
+            <ErrorMsgList errors={errors}/>
+            {profileUpdated ? <ProfileUpdatedMsg /> : null}
             <div class="ui equal width grid">
                 <div class="column">
                     <div class="ui basic segment"></div>
