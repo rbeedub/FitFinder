@@ -6,11 +6,13 @@ import NavBar from './NavBar'
 import Events from './Events'
 import EventDetails from './EventDetails'
 import EditProfile from './EditProfile'
+import AllPeople from './AllPeople'
 
 function App() {
 
   const [user, setUser] = useState(null);
-  const [events, setEvents] = useState([])
+  const [events, setEvents] = useState([]);
+  const [people, setPeople] = useState([])
   console.log(user)
   // const [user, setUser] = useState(null);
 
@@ -28,7 +30,7 @@ function App() {
     // auto-login
     fetch("/users").then((r) => {
       if (r.ok) {
-        r.json().then((data) => console.log("users", data));
+        r.json().then((data) => setPeople(data));
       }
     });
   }, []);
@@ -60,6 +62,10 @@ function App() {
       <NavBar user={user} setUser={setUser} />
       <main>
         <Switch>
+          <Route path="/all_people">
+            <AllPeople
+            people={people} setPeople={setPeople} />
+          </Route>
         <Route path="/event_details/:id">
             <EventDetails
             events={events}
