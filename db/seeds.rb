@@ -27,7 +27,7 @@ Activity.destroy_all
         bio: Faker::Lorem.paragraph(sentence_count: 2), 
         location_zip: Faker::Address.postcode, 
         location_name: Faker::Address.city,  
-        photo: "./public/images/#{num}.svg")
+        photo: "../client/public/images/#{num}.svg")
 end
 
 User.create(
@@ -39,7 +39,7 @@ User.create(
     bio: "World's Greatest Boss",
     location_zip: 18503,
     location_name: "Scranton, PA",
-    photo: "./public/images/31.svg"
+    photo: "../client/public/images/31.svg"
 )
 
 # Activity
