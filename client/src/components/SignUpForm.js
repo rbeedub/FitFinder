@@ -43,6 +43,7 @@ function handleFormSubmit (e) {
         .then(setFormData(initialData))
 }
 
+
 return (
 <div class="ui equal width grid">
 <div class="column">

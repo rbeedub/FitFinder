@@ -6,7 +6,7 @@ function SignInPage ({ setUser }){
 
     const [showLogin, setShowLogin] = useState(true);
     const [errors, setErrors] = useState([])
-
+    console.log('errors', errors)
     return (
         <div>
             {showLogin ? <>
