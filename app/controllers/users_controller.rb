@@ -19,7 +19,7 @@ skip_before_action :authorize, only: :create
     private 
 
     def user_params 
-        params.permit(:name, :email, :username, :password, :password_confirmation, :bio, :age, :location, :photo)
+        params.permit(:name, :email, :username, :password, :password_confirmation, :bio, :age, :location_zip, :location_name, :photo)
     end
 
 end
