@@ -1,19 +1,20 @@
 import React from "react";
 import SideMenu from "./SideMenu";
 import EventsContainer from "./EventsContainer";
+import CreateEvent from "./CreateEvent";
 
-function Events() {
+function Events({ events }) {
+return (
 <>
-    <div>Put the Events here! </div>
+  <div>
 {/* Put two columns here  */}
     < SideMenu /> 
-    < EventsContainer />
-
+    < EventsContainer events={events} />
     {/* "Create event" button here */}
     <CreateEvent />
-
+</div>
 </>
-
+)
 }
 
 export default Events;

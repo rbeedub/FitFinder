@@ -2,14 +2,18 @@ import React from "react";
 import EventCard from "./EventCard";
 
 
-function EventCardContainer() {
+function EventsContainer({ events }) {
+
+    const eventCards = events.map((e) => <EventCard key={e.id} {...e}/>)
+
+return (
 <>
 {/* format the number of cards here */}
 
-    <EventCard/>
+    {eventCards}
 
 </>
-
+)
 }
 
-export default EventCardContainer;
+export default EventsContainer;

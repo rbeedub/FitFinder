@@ -17,7 +17,7 @@ Activity.destroy_all
 
 #Create Users
 
-20.times do 
+(1..30).each do |num| 
     User.create(
         name: Faker::Name.unique.name, 
         email: Faker::Internet.unique.email,
@@ -27,7 +27,7 @@ Activity.destroy_all
         bio: Faker::Lorem.paragraph(sentence_count: 2), 
         location_zip: Faker::Address.postcode, 
         location_name: Faker::Address.city,  
-        photo: Faker::LoremFlickr.image)
+        photo: "./public/images/#{num}.svg")
 end
 
 User.create(
@@ -49,8 +49,10 @@ activities.each do |a|
 end
 
 # Events
-20.times do 
+event_names = ["Badminton Baddies", "Meat Head Meet Up", "Pilates Hotties", "Yoga Meditation & Sound Bath", "Leg Day Gainz", "Ultra intense cardio for vegans", "Basketball against the warehouse", "GymBro 4 GymBro", "Jazzercise with Phyllis", "Beach Vollyball", "Elderly TaiChi", "Doubles Tennis", "HopScotch with Scotch", "Bros, Brews and Balls", "Babes, brews, balls", "Crossfit in the Park for Meat Eaters Only", "Jumprope for Charity", "Fun Run for the Cure for Rabies", "Shoot pool, don't shoot up", "Arms & Abs All Day", "Swim With Us", "Bootcamp for Software Engineers Only", "Deep Breathing Techniques", "Tennis for Two", "Pickleball Pontification" ]
+event_names.each do |e|
     Event.create(
+        event_name: e,
         location_name: Faker::Address.city, 
         location_zip: Faker::Number.number(digits: 5), 
         date_time: Faker::Time.between(from: DateTime.now - 1, to: DateTime.now, format: :short), 
