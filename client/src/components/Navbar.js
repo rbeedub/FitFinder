@@ -11,13 +11,13 @@ function NavBar({ user, setUser }) {
         });
     }
 
-return (<>
-    <div>Put the logo here! </div>
-    <h1> This is where the navbar goes</h1>
-    <p>profile link</p>
-    <p>logout link</p>
+return (
+<>
+<img class="ui fluid image" src="./images/FitFinderBanner.png" alt="placeholder" />
+
     <LogOutButton handleLogOutClick={handleLogOutClick}/>
-</>)
+</>
+)
 
 }
 
