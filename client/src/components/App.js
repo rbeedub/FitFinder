@@ -60,7 +60,7 @@ function App() {
       <NavBar user={user} setUser={setUser} />
       <main>
         <Switch>
-        <Route path="/event_details">
+        <Route path="/event_details/:id">
             <EventDetails
             events={events}
             />
