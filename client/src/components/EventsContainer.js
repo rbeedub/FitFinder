@@ -4,15 +4,18 @@ import EventCard from "./EventCard";
 
 function EventsContainer({ events }) {
 
-    const eventCards = events.map((e) => <EventCard key={e.id} {...e}/>)
+   const eventCards = events.map((e) => <EventCard key={e.id} {...e}/>)
 
 return (
-<>
-{/* format the number of cards here */}
 
-    {eventCards}
 
-</>
+<div class="ui fluid four cards">
+
+{eventCards}
+
+</div>
+
+
 )
 }
 

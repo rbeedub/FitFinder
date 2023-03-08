@@ -1,5 +1,6 @@
 import React from "react";
 import LogOutButton from './LogOutButton'
+import { NavLink } from "react-router-dom";
 
 function NavBar({ user, setUser }) {
 
@@ -13,7 +14,9 @@ function NavBar({ user, setUser }) {
 
 return (
 <>
-<img class="ui fluid image" src="./images/FitFinderBanner.png" alt="placeholder" />
+{/* < NavLink to="/"> <button class="ui button"> All Events </button> </NavLink> */}
+
+< NavLink to="/" ><img class="ui fluid image" src="./images/FitFinderBanner.png" alt="placeholder"/></NavLink>
 
     <LogOutButton handleLogOutClick={handleLogOutClick}/>
 </>
