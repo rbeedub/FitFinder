@@ -28,7 +28,7 @@ useEffect(()=> {
 return (
 
 <>
-{/* <div class="row">
+<div class="row">
 <div class="three wide column">
 < NavLink to="/"> <button class="ui button"> All Events </button> </NavLink>
 </div>
@@ -54,7 +54,7 @@ return (
 <div class="three wide column">
     <img/>
 </div>
-</div> */}
+</div>
 
 
 
