@@ -2,38 +2,36 @@ import React from "react";
 import EventDetails from "./EventDetails";
 
 
-function EventCard() {
+function EventCard({ event_name, date_time, description, participants, location_name }) {
 
 return (
 
     // render some event details here
 
 <div class="ui card">
-    <div class="image">
-        <img src={headshot_photo} alt="headshot"/>
-    </div>
     <div class="content">
-        <div class="header">{name}</div>
+        <div class="event_name">{event_name}</div>
         <div class="meta">
-        <span class="date">Plastic since 2003</span>
+        <span class="date">{date_time}</span>
         </div>
         <div class="ui hidden divider"></div>
-        <div class="superlative">
-        "{superlative}"
+        <div class="description">
+        Description: {description}
         </div>
-        <div class="parties attended">
-        {name} has attended {number_of_parties} parties
+        <div class="location_name">
+        City: {location_name}
+        </div>
+        <div class="participants">
+        Number of Participants: {participants}
         </div>
     </div>
-    <div class="extra content">
+    {/* <div class="extra content">
         <a href="https://i.insider.com/608335b408610f0018b0f3d8?width=700">
         <i class="user icon"></i>
-        Best Friends Forever
         </a>
-    </div>
-    <button class="ui pink basic button" onClick={deleteMeangirl}>
-    <i class="recycle icon"></i>
-    Recycle Plastic
+    </div> */}
+    <button class="ui button" >
+   More Details
     </button>
 
 
