@@ -8,7 +8,7 @@ function EventCard({ event_name, date_time, description, participants, location_
 
 return (
 <>
-<div class="card">
+<div class="teal card">
 <div class="content">
     <div class = "header">
     <div class="event_name"><h2>{event_name}</h2></div>

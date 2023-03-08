@@ -1,14 +1,16 @@
 import React from "react";
-import EventMenu from "./EventMenu";
-import AttendanceCard from "./AttendanceCard";
-import ResponseForm from "./ResponseForm";
+// import EventMenu from "./EventMenu";
+// import AttendanceCard from "./AttendanceCard";
+// import ResponseForm from "./ResponseForm";
 import EventDetailsContainer from "./EventDetailsContainer";
 import { NavLink, useParams } from "react-router-dom"
 import { useState, useEffect } from "react"
 
 
 
-function EventDetails( {event_name, date_time, description, participants, location_name,location_zip, host_id, activity} ) {
+function EventDetails( {user, removeFromEvents, event_name, date_time, description, participants, location_name,location_zip, host_id, activity} ) {
+
+console.log("host.id", host_id)
 
 const [event, setEvent] = useState({})
 
@@ -42,6 +44,9 @@ return (
     location_zip={location_zip}
     host_id={host_id}
     activity={activity}
+    removeFromEvents={removeFromEvents}
+    user={user}
+    host={event.host}
 />
 </div>
 </div>
