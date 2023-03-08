@@ -7,9 +7,11 @@ function SideMenu() {
 return(
 <>
     <SearchFilter />
-    < NavLink to="/all_people"> <button class="ui button"> All People </button> </NavLink>
-    <CreateEvent />
-    
+  <ui>
+   <div> < NavLink to="/all_people"> <button class="ui button"> All People </button> </NavLink></div>
+   <br></br>
+   <div> < NavLink to="/create_event"> <button class="ui button"> Create Event </button> </NavLink></div>
+   </ui>
 </>
 )
 }

@@ -23,7 +23,7 @@ return (
     </span>
     <span>
     <i class="heart icon"></i>
-    likes go here <3
+    likes go here
     </span>
     </div>
 </div>
