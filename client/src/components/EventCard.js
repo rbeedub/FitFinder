@@ -3,7 +3,7 @@ import EventDetails from "./EventDetails";
 import { NavLink } from 'react-router-dom';
 
 
-function EventCard({ event_name, date_time, description, participants, location_name,location_zip, host_id, activity }) {
+function EventCard({ event_name, date_time, description, participants, location_name, id, location_zip, host_id, activity }) {
 
 
 return (
@@ -35,7 +35,7 @@ return (
     </span>
 </div>
 
-< NavLink to="/event_details"> <button class="ui button"> Details </button> </NavLink>
+< NavLink to={`/event_details/${id}`}> <button class="ui button"> Details </button> </NavLink>
 
 </div>
 {/* <div>

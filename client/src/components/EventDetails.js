@@ -3,9 +3,28 @@ import EventMenu from "./EventMenu";
 import AttendanceCard from "./AttendanceCard";
 import ResponseForm from "./ResponseForm";
 import EventDetailsContainer from "./EventDetailsContainer";
-import { NavLink } from "react-router-dom"
+import { NavLink, useParams } from "react-router-dom"
+import { useState, useEffect } from "react"
+
+
 
 function EventDetails( {event_name, date_time, description, participants, location_name,location_zip, host_id, activity} ) {
+
+const [event, setEvent] = useState({})
+
+const{id} = useParams()
+console.log(id)
+
+
+useEffect(()=> {
+    fetch(`/events/${id}`)
+    .then((response) => response.json())
+    .then(res => (setEvent(res)))
+},[])
+
+
+
+
 return (
 
 <>
