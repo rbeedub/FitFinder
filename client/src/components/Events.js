@@ -8,10 +8,10 @@ return (
 
 <div class="ui grid">
     <div class="four wide column">
-    < SideMenu />
+    <SideMenu />
     </div>
     <div class="twelve wide column">
-    < EventsContainer events={events} />
+    <EventsContainer events={events} />
   </div>
   </div>
 
