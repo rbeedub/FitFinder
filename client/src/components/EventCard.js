@@ -1,47 +1,55 @@
 import React from "react";
 import EventDetails from "./EventDetails";
+import { NavLink } from 'react-router-dom';
 
 
-function EventCard() {
+function EventCard({ event_name, date_time, description, participants, location_name,location_zip, host_id, activity }) {
+
 
 return (
-
-    // render some event details here
-
-<div class="ui card">
-    <div class="image">
-        <img src={headshot_photo} alt="headshot"/>
+<>
+<div class="card">
+<div class="content">
+    <div class = "header">
+    <div class="event_name"><h2>{event_name}</h2></div>
     </div>
-    <div class="content">
-        <div class="header">{name}</div>
-        <div class="meta">
-        <span class="date">Plastic since 2003</span>
-        </div>
-        <div class="ui hidden divider"></div>
-        <div class="superlative">
-        "{superlative}"
-        </div>
-        <div class="parties attended">
-        {name} has attended {number_of_parties} parties
-        </div>
+    <div class="meta">
+    </div>
+    <br></br>
+    <div class="description">
+    <h5 class= "ui header">Description:</h5>{description}
+    </div>
+    <br></br>
     </div>
     <div class="extra content">
-        <a href="https://i.insider.com/608335b408610f0018b0f3d8?width=700">
-        <i class="user icon"></i>
-        Best Friends Forever
-        </a>
-    </div>
-    <button class="ui pink basic button" onClick={deleteMeangirl}>
-    <i class="recycle icon"></i>
-    Recycle Plastic
-    </button>
-
-
-{/* create link to  */}
-    <EventDetails />
-
+    <span class="location"><h5 class= "ui header">
+    Location: </h5> {location_name}
+    </span>
+    <br></br>
+    <span class="participants"><h5 class= "ui header">
+    # of participants: </h5> {participants}
+    </span>
+    <br></br>
+    <span class="date_time"><h5 class= "ui header">
+    Date: </h5> {date_time}
+    </span>
 </div>
 
+< NavLink to="/event_details"> <button class="ui button"> Details </button> </NavLink>
+
+</div>
+{/* <div>
+    <EventDetails
+    event_name={event_name}
+    date_time={date_time}
+    description={description}
+    participants={participants}
+    location_name={location_name}
+    location_zip={location_zip}
+    host_id={host_id}
+    activity={activity} />
+</div> */}
+</>
 )
 }
 

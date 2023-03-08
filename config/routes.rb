@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   resources :user_activities, only: [:create, :destroy]
   resources :activities, only: [:index, :show]
   resources :events
-  resources :likes, only: [:show, :update]
+  resources :likes, only: [:show, :create, :destroy]
   resources :responses, only: [:show, :create, :update]
   get 'sessions/create'
   get 'sessions/destroy'

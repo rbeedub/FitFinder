@@ -1,14 +1,11 @@
-import React from "react";
+// import React from "react";
 
-function EventDetails() {
-<>
-
-<EventMenu />
-<EventDetailsContainer />
+// function EventMenu() {
+// <>
 
 
-</>
+// </>
 
-}
+// }
 
-export default EventDetails;
+// export default EventMenu;
