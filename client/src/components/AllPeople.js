@@ -6,11 +6,12 @@ function AllPeople({ people, setPeople }) {
 return (
 <>
 <div class="ui grid">
-    <div class="four wide column">
-    <PeopleSideMenu/>
-        </div>
-    <div class="twelve wide column">
+   
+    <div class="thirteen wide column">
     <PeopleContainer people={people} setPeople={setPeople}/>
+  </div>
+   <div class="three wide column">
+    <PeopleSideMenu/>
   </div>
   </div>
 </>

@@ -7,11 +7,15 @@ function Events({ events }) {
 return (
 
 <div class="ui grid">
+<div class="ui menu">
     <div class="four wide column">
     <SideMenu />
     </div>
+    
     <div class="twelve wide column">
+
     <EventsContainer events={events} />
+    </div>
   </div>
   </div>
 

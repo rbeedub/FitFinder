@@ -74,7 +74,7 @@ function handleFormSubmit(e){
 
 return(
 <>
-{user.id == host?.id ? <button class="ui button" onClick={deleteEvent}> Delete Event </button> : null }
+{/* {user.id == host?.id ? <button class="ui right attached pink button" onClick={deleteEvent}> Delete Event </button> : null } */}
 {/* <button class="ui button"> Delete Event </button>  */}
 <div class="ui segments">
 <div class="ui segment">
@@ -96,9 +96,19 @@ return(
 <div class="ui segment">
     <p>Hosted by: {host?.name} </p>
 </div>
-{user.id == host?.id ? <button class="ui button" onClick={() => {
+<div class="ui large buttons">
+{user.id == host?.id ?
+  <button class="ui pink button" onClick={deleteEvent} >Delete</button> : null }
+  <div class="or"></div>
+  {user.id == host?.id ?
+  <button class="ui teal button" onClick={() => {
     setFormData(event)
-    setIsClicked(!isClicked)}}> Edit Event </button> : null}
+    setIsClicked(!isClicked)}} >Edit</button>: null}
+</div>
+{/* {user.id == host?.id ? <button class="ui teal button" onClick={() => {
+    setFormData(event)
+    setIsClicked(!isClicked)}}> Edit Event </button> : null} */}
+{/* {user.id == host?.id ? <button class="ui right attached pink button" onClick={deleteEvent}> Delete Event </button> : null } */}
 </div>
 
 <ErrorMsgList errors={errors} />
@@ -139,7 +149,7 @@ return(
                                 <input value={formData.participants} type="number" name="participants" onChange={onFormChange} />
                             </div>
                         </div>
-                        <button class="ui button" type="submit">Submit</button>
+                        <button class="ui teal button" type="submit">Submit</button>
                     </div>
                  </div>
             </form>

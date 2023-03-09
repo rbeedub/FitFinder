@@ -6,12 +6,13 @@ import { NavLink } from "react-router-dom";
 function SideMenu() {
 return(
 <>
-    <SearchFilter />
+  <SearchFilter />
   <div>
-   <div> < NavLink to="/all_people"> <button class="ui button"> All People </button> </NavLink></div>
-   <br></br>
-   <div> < NavLink to="/create_event"> <button class="ui button"> Create Event </button> </NavLink></div>
-   </div>
+    {/* <img src="./images/FitSideBanner.svg"/>
+  <p>Is there an event you want to create?</p> */}
+  <div>< NavLink to="/create_event"> <button class="ui button"> <img src="./images/FitSideBanner.svg"/></button> </NavLink></div>
+    </div>
+
 </>
 )
 }

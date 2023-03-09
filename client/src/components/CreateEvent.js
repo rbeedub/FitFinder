@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import ErrorMsgList from './ErrorMsgList';
+import WorkoutVid from '../assets/workoutVid.mp4'
+import GroupWorkout from '../assets/GroupWorkout.mp4';
 
 function CreateEvent( { onEventSubmit, user } ) {
 
@@ -53,10 +55,17 @@ function handleFormSubmit(e) {
 return (
 <>
 
-<div> < NavLink to="/all_people"> <button class="ui button"> All People </button> </NavLink></div>
-
+<div class="ui basic segment">
+<div class="ui segments">
+  <div class="ui segment"> 
+  <div> < NavLink to="/all_people"> <button class="ui button"> All People </button> </NavLink></div>
+  <div class="ui segments">
+    <div class="ui segment">
+ 
    <div class="ui equal width grid">
- <div class="column">
+
+ <div class="column">  
+  <video src={WorkoutVid} autoPlay loop={true} /> 
  </div>
     <div class="eight wide column">
     <div class="ui segment">
@@ -89,21 +98,26 @@ return (
                 <input value={formData.participants} type="number" name="participants" placeholder="participants" onChange={handleFormChange}/>
                 </div>
             </div>
-            <button class="ui button" type="submit">Submit</button>
+            <button class="ui teal button" type="submit">Submit</button>
             </div>
         </div>
     </form>
     <ErrorMsgList errors={errors} />
     </div>
-
     </div>
     <div class="column">
+    <video src={GroupWorkout} autoPlay loop={true} /> 
         <div>
-
         </div>
     </div>
     </div> 
-    </>
+    </div>
+    </div>
+  </div>
+  </div>
+  </div>
+
+</>
     )
     }
 

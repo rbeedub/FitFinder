@@ -1,16 +1,21 @@
 import React from "react";
 
 function PeopleSearchFilter() {
-return (
-<>
-
-
-<h1>People Filter and Search</h1>
-
-
-
-</>
+return(
+<div class="ui vertical text menu">
+<div class="header teal item">Sort By</div>
+<a class="active item">
+Age
+</a>
+<a class="item">
+Name
+</a>
+<a class="item">
+Activity
+</a>
+</div>
 )
 }
+
 
 export default PeopleSearchFilter;
