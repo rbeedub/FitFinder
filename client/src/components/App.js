@@ -102,6 +102,7 @@ function App() {
               events={events}
               removeFromEvents={removeFromEvents}
               user={user}
+              setUser={setUser}
               onFormSubmit={onFormSubmit}
             />
           </Route>

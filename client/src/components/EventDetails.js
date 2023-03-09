@@ -8,7 +8,7 @@ import { useState, useEffect } from "react"
 
 
 
-function EventDetails( {user, onFormSubmit, removeFromEvents, event_name, date_time, description, participants, location_name,location_zip, host_id, activity} ) {
+function EventDetails( {user, onFormSubmit, removeFromEvents, event_name, date_time, description, participants, location_name,location_zip, host_id, activity, setUser} ) {
 
     const [event, setEvent] = useState({})
     const{id} = useParams()
@@ -45,6 +45,7 @@ function EventDetails( {user, onFormSubmit, removeFromEvents, event_name, date_t
                         event={event}
                         onFormSubmit={onFormSubmit}
                         setEvent={setEvent}
+                        setUser={setUser}
                     />
                 </div>
             </div>
