@@ -98,29 +98,50 @@ return(
 {/* {user.id == host?.id ? <button class="ui right attached pink button" onClick={deleteEvent}> Delete Event </button> : null } */}
 {/* <button class="ui button"> Delete Event </button>  */}
 <div class="ui segments">
-<div class="ui segment">
-<h5 class="header">{event_name}</h5>
+<div class="ui inverted teal segment">
+<h1 class="ui center aligned header">{event_name}</h1>
 </div>
 <div class="ui segments">
 <div class="ui segment">
-    <p>Event Details:</p>
+<div class="ui medium header">Event Details</div>
     <div class="ui segment">
-    <p>Date / Time: {date_time}</p>
-    <p>Location: {location_name}</p>
+    <div class="ui two column grid">
+    <div class="column">
+    <h4 class="ui header">Date / Time: </h4> {date_time}
     <br></br>
-    <p>Description: {description}</p>
-    <p>Activity: {activity?.activity}</p>
-    <p># of participants: {participants}</p>
+    <h4 class="ui header">Location:</h4> {location_name}
+    <br></br>
+    <h4 class="ui header">Description: </h4> {description}
+    <h4 class="ui header">Activity:</h4> {activity?.activity}
+    <h4 class="ui header"> # of participants: </h4> {participants}
+
+</div>
+<div class="column">
+<div class="ui three column grid">
+    <div class="column"></div>
+    <h2 class="ui header">RSVP</h2>
+        <Respondants event={event} />
+    <div class="column"></div>
+</div>
+</div>
+
+</div>
 </div>
 </div>
 
 <div class="ui segment">
-    <p>Hosted by: {host?.name} </p>
+<div class="ui medium header">Hosted by: <img class="ui small circular image" src={host?.image}/> {host?.name} </div>
 </div>
 <div class="ui large buttons">
 {user.id == host?.id ?
-  <button class="ui pink button" onClick={deleteEvent} >Delete</button> : null }
-  <div class="or"></div>
+<>
+  <button class="ui pink button" onClick={deleteEvent} >Delete</button>
+ 
+  <div class="or">
+    
+  </div>
+  </>
+  : null }
   {user.id == host?.id ?
   <button class="ui teal button" onClick={() => {
     setFormData(event)
@@ -131,6 +152,7 @@ return(
     setIsClicked(!isClicked)}}> Edit Event </button> : null} */}
 {/* {user.id == host?.id ? <button class="ui right attached pink button" onClick={deleteEvent}> Delete Event </button> : null } */}
 </div>
+
 
 <ErrorMsgList errors={errors} />
 
@@ -187,7 +209,7 @@ return(
 
     </div>
     <AttendanceCard event={event} user={user} setEvent={setEvent} setUser={setUser}/>
-    <Respondants event={event} />
+    {/* <Respondants event={event} /> */}
     {/* {event?.respondants.length >0 ? <PeopleContainer people={event?.respondants}/> : null} */}
     {/* {yesses?.length>0 ? <PeopleContainer people={yesses} /> : null}
     {nos?.length>0 ? <PeopleContainer people={nos} /> : null}

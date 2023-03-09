@@ -12,10 +12,19 @@ function SignInPage ({ setUser }){
     return (
     <>
 
-    
+
 <div class="ui inverted teal segment">
-
-
+<div class="ui grid">
+<div class="eight wide column">
+<div class="ui inverted teal segment">
+<img class="ui centered medium image"  src="./images/FindFitFriend2.svg"/>
+</div>
+</div>
+  <div class="eight wide column">
+  <h2 class="ui center aligned white icon header">
+  <i class="inverted circular users icon"></i>
+  Already a Member?
+</h2>
 
         <div>
             {showLogin ? <>
@@ -31,6 +40,27 @@ function SignInPage ({ setUser }){
             <ErrorMsgList errors={errors}/>            
             {/* <SignUpForm setUser={setUser} setErrors={setErrors}/> */}
             </div>
+
+
+  </div>
+
+
+{/* <h5 class= "ui header"> Already a Member?</h5>
+        <div>
+            {showLogin ? <>
+                <SignIn setUser = {setUser} setErrors={setErrors}/> 
+                <button class="ui button" onClick={() => setShowLogin(!showLogin)}>Show Sign up</button>
+            </>
+                
+            : <>
+                <SignUpForm setUser={setUser} setErrors={setErrors}/> 
+                <button class="ui button" onClick={() => setShowLogin(!showLogin)}>Show Log in</button>
+            </> 
+            }       
+            <ErrorMsgList errors={errors}/>            
+            {/* <SignUpForm setUser={setUser} setErrors={setErrors}/> */}
+            
+</div>
 </div>
     </>
     )
