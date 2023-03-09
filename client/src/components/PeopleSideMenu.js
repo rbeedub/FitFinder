@@ -1,17 +1,19 @@
 import React from "react";
 import PeopleSearchFilter from "./PeopleSearchFilter";
 import { NavLink } from "react-router-dom";
+// import FitSideBanner from "../assets/FitSideBanner";
+import fitSideBanner from '../assets/FitSideBannerMovie.mp4'
+
+
 
 function PeopleSideMenu() {
 return (
 <>
-
-<NavLink to="/"> <button class="ui button"> All Events </button> </NavLink>
-
 <PeopleSearchFilter/>
-<h1>People Search and Filter go here</h1>
 
-
+<div>
+<video src={fitSideBanner} autoPlay loop={true} /> 
+</div>
 
 
 </>

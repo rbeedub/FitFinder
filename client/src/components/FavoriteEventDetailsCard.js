@@ -4,8 +4,7 @@ function FavoriteEventsDetailsCard() {
 return (
 <>
 
-<h1>render event here</h1>
-
+<h1>render event details here</h1>
 
 </>
 )

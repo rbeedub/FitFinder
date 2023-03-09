@@ -34,7 +34,6 @@ return (
 <>
 <div class="row">
 <div class="three wide column">
-< NavLink to="/"> <button class="ui button"> All Events </button> </NavLink>
 </div>
 <div class="thirteen wide column">
 <EventDetailsContainer

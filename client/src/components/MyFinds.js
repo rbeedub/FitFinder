@@ -1,15 +1,13 @@
 import React from "react";
-
+import FavoriteEventsContainer from "./FavoriteEventsContainer";
+import MyFindsPeopleContainer from "./MyFindsPeopleContainer";
 
 function MyFinds() {
 return (
 <>
-
-<SinglePersonCard/>
-<h1>Favorite Events container</h1>
-
-
-
+<p>Render Events and favorited friends here</p>
+<MyFindsPeopleContainer/>
+<FavoriteEventsContainer/>
 
 </>
 )
