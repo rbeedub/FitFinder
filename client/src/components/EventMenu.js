@@ -1,11 +1,12 @@
-// import React from "react";
+import React from "react";
 
-// function EventMenu() {
-// <>
+function EventMenu() {
+return(
+<>
 
+<img src="./images/FitSideBannerRight.svg"/>
+</>
+)
+}
 
-// </>
-
-// }
-
-// export default EventMenu;
+export default EventMenu;

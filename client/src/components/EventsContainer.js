@@ -9,7 +9,7 @@ function EventsContainer({ events }) {
 return (
 
 
-<div class="ui fluid four cards">
+<div class="ui fluid five cards">
 
 {eventCards}
 
