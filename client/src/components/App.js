@@ -14,7 +14,7 @@ function App() {
   const [user, setUser] = useState(null);
   const [events, setEvents] = useState([]);
   const [people, setPeople] = useState([])
-  console.log(user)
+  //console.log(user)
   // const [user, setUser] = useState(null);
 
   useEffect(() => {
@@ -39,12 +39,6 @@ function App() {
       }
     });
 
-    // get activities
-    fetch("/activities").then((r) => {
-      if (r.ok) {
-        r.json().then((data) => console.log("activities", data));
-      }
-    });
   }, []);
 
 
@@ -54,17 +48,17 @@ function App() {
 
 
   function onFormSubmit(editedEvent){
-    console.log(`edit me!`)
+    //console.log(`edit me!`)
   const newEvent = events.map((event) => event.id == editedEvent.id ? editedEvent : event )
     setEvents(newEvent)
-    console.log(editedEvent)
+    //console.log(editedEvent)
   }
 
   function removeFromEvents(idObj){
-    console.log(`Delete me!`)
-    console.log('idObj', idObj)
+    //console.log(`Delete me!`)
+    //console.log('idObj', idObj)
     const removeEvent = events.filter(event => event.id !== Number(idObj))
-    console.log("remove Event", removeEvent)
+    //console.log("remove Event", removeEvent)
     setEvents(removeEvent)
   }
 
