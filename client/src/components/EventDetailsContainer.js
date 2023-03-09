@@ -7,7 +7,7 @@ import EventCommentForm from "./EventCommentForm";
 import PeopleContainer from "./PeopleContainer";
 import Respondants from "./Respondants"
 
-function EventDetailsContainer({ onFormSubmit, removeFromEvents, user, event_name, date_time, description, participants, location_name,location_zip, host_id, activity, host, event, setEvent }) {
+function EventDetailsContainer({ onFormSubmit, removeFromEvents, user, event_name, date_time, description, participants, location_name,location_zip, host_id, activity, host, event, setEvent, setUser }) {
 
 
     const [formData, setFormData] = useState({})
@@ -186,7 +186,7 @@ return(
     <div class="ui segment">
 
     </div>
-    <AttendanceCard event={event} user={user} setEvent={setEvent}/>
+    <AttendanceCard event={event} user={user} setEvent={setEvent} setUser={setUser}/>
     <Respondants event={event} />
     {/* {event?.respondants.length >0 ? <PeopleContainer people={event?.respondants}/> : null} */}
     {/* {yesses?.length>0 ? <PeopleContainer people={yesses} /> : null}
