@@ -54,7 +54,9 @@ function App() {
 
   function removeFromEvents(idObj){
     console.log(`Delete me!`)
-    const removeEvent = events.filter(event => event.id !== idObj)
+    console.log('idObj', idObj)
+    const removeEvent = events.filter(event => event.id !== Number(idObj))
+    console.log("remove Event", removeEvent)
     setEvents(removeEvent)
   }
 
@@ -65,15 +67,15 @@ function App() {
       <NavBar user={user} setUser={setUser} />
       <main>
         <Switch>
-          <Route path="/all_people">
+          <Route path="/create_event">
+            <CreateEvent
+            onEventSubmit={onEventSubmit}
+            user={user}
+            />
+            <Route path="/all_people">
             <AllPeople
             people={people} setPeople={setPeople} />
           </Route>
-          <Route path="/create_event">
-            <CreateEvent
-          onEventSubmit={onEventSubmit}
-          user={user}
-            />
           </Route>
         <Route path="/event_details/:id">
             <EventDetails
@@ -82,10 +84,10 @@ function App() {
             user={user}
             />
           </Route>
-          <Route exact path="/">
+        <Route exact path="/">
             <Events user={user} events={events} />
           </Route>
-          <Route path="/edit-profile">
+        <Route path="/edit-profile">
             <EditProfile user={user} setUser={setUser}/>
           </Route>
         </Switch>

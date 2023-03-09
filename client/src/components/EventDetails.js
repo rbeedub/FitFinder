@@ -25,7 +25,9 @@ useEffect(()=> {
 },[])
 
 
-
+// console.log("event", event)
+// console.log("event host", event.host)
+// console.log("event host name", event.host.name)
 
 return (
 
@@ -36,17 +38,18 @@ return (
 </div>
 <div class="thirteen wide column">
 <EventDetailsContainer
-    event_name={event_name}
-    date_time={date_time}
-    description={description}
-    participants={participants}
-    location_name={location_name}
-    location_zip={location_zip}
+    event_name={event.event_name}
+    date_time={event.date_time}
+    description={event.description}
+    participants={event.participants}
+    location_name={event.location_name}
+    location_zip={event.location_zip}
     host_id={host_id}
-    activity={activity}
+    activity={event?.activity}
     removeFromEvents={removeFromEvents}
     user={user}
-    host={event.host}
+    host={event?.host}
+
 />
 </div>
 </div>

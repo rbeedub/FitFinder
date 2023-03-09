@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import ErrorMsgList from './ErrorMsgList';
 
-function CreateEvent({ onEventSubmit, user }) {
+function CreateEvent( { onEventSubmit, user } ) {
 
         const initialData = {
             event_name:'',
