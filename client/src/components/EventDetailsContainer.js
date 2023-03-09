@@ -4,8 +4,10 @@ import AttendanceCard from "./AttendanceCard"
 import ErrorMsgList from "./ErrorMsgList";
 import { useParams, useHistory } from 'react-router-dom'
 import EventCommentForm from "./EventCommentForm";
+import PeopleContainer from "./PeopleContainer";
+import Respondants from "./Respondants"
 
-function EventDetailsContainer({ onFormSubmit, removeFromEvents, user, event_name, date_time, description, participants, location_name,location_zip, host_id, activity, host, event }) {
+function EventDetailsContainer({ onFormSubmit, removeFromEvents, user, event_name, date_time, description, participants, location_name,location_zip, host_id, activity, host, event, setEvent }) {
 
 
     const [formData, setFormData] = useState({})
@@ -13,7 +15,6 @@ function EventDetailsContainer({ onFormSubmit, removeFromEvents, user, event_nam
     const history = useHistory()
     const { id } = useParams()
     const [isClicked, setIsClicked] = useState(false)
-
 
     // useEffect(()=>{
     //     setFormData({
@@ -71,6 +72,26 @@ function handleFormSubmit(e){
     .then(onFormSubmit)
 
 }
+// const yesIds = event?.responses?.filter(r => r=="yes").map(r=>r.user_id)
+// const noIds = event?.responses?.filter(r => r=="no").map(r=>r.user_id)
+// const maybeIds = event?.responses?.filter(r => r=="maybe").map(r=>r.user_id)
+
+// const yesses = event?.respondants?.filter(r => yesIds.includes(r.id))
+// const nos = event?.respondants?.filter(r => noIds.includes(r.id))
+// const maybes = event?.respondants?.filter(r => maybeIds.includes(r.id))
+// console.log(event)
+
+// function getRespondants(event, response){
+//     const ids = event.responses.filter(r => r==response).map(r=>r.user_id)
+//     const respondants = event.respondants.filter(r => ids.includes(r.id))
+//     return(respondants)
+// }
+
+// console.log(yesIds)
+// console.log('yesses', yesses)
+// console.log('nos', nos)
+// console.log('maybes', maybes)
+// console.log(getRespondants(event, 'yes'))
 
 return(
 <>
@@ -165,7 +186,12 @@ return(
     <div class="ui segment">
 
     </div>
-    <AttendanceCard event={event} user={user}/>
+    <AttendanceCard event={event} user={user} setEvent={setEvent}/>
+    <Respondants event={event} />
+    {/* {event?.respondants.length >0 ? <PeopleContainer people={event?.respondants}/> : null} */}
+    {/* {yesses?.length>0 ? <PeopleContainer people={yesses} /> : null}
+    {nos?.length>0 ? <PeopleContainer people={nos} /> : null}
+    {maybes?.length>0 ? <PeopleContainer people={maybes} /> : null} */}
     <EventCommentForm />
     </div>
 

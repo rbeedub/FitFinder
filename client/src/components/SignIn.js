@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
 
 function SignIn({ setUser, setErrors }) {
-    console.log("setUser from Signin", setUser)
+    //console.log("setUser from Signin", setUser)
 
         const initialData = {
             name:'',

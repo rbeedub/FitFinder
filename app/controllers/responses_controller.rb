@@ -9,10 +9,10 @@ class ResponsesController < ApplicationController
         response = Response.find_by(user_id: response_params[:user_id], event_id: response_params[:event_id])
         if response
             response.update!(response_params)
-            render json: response, status: :accepted
+            render json: response.event, status: :accepted, serializer: EventWithRsvpSerializer
         else 
             response = Response.create!(response_params)
-            render json: response, status: :created
+            render json: response.event, status: :created, serializer: EventWithRsvpSerializer
         end  
     end
 
