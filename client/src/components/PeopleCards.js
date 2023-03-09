@@ -1,7 +1,13 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 
 function PeopleCards({ name, username, bio, age, location_name, location_zip, photo, activities }) {
+
+    const [isLiked, setIsLiked] = useState(false)
+
+    function handleLike() {
+        setIsLiked(!isLiked)
+    }
 
     const activityTags = activities.map(a => {
         return <div class="ui horizontal label">{`${a.activity}`} </div>
@@ -29,8 +35,11 @@ function PeopleCards({ name, username, bio, age, location_name, location_zip, ph
     {location_name}
     </span>
     <span>
-    <i class="heart icon"></i>
-    likes go here
+        <div onClick={handleLike}>
+        {isLiked == true ? 
+        <i class="heart icon" onClick={handleLike}></i> :
+        <i class="heart outline icon"></i>}
+        </div>
     </span>
     </div>
 </div>
