@@ -2,8 +2,9 @@ import React, { useState } from "react";
 import { useHistory } from 'react-router-dom'
 import ErrorMsgList from "./ErrorMsgList";
 import ProfileUpdatedMsg from "./ProfileUpdatedMsg";
+import ActivitySelectorForm from "./ActivitySelectorForm";
 
-function EditProfileForm({ user, setUser }) {
+function EditProfileForm({ user, setUser, activities }) {
 
     const [formData, setFormData] = useState(user)
     const [errors, setErrors] = useState([])
@@ -99,6 +100,7 @@ function EditProfileForm({ user, setUser }) {
                                         <label>Photo</label>
                                         <input value= {formData.photo} type="text" name="photo" placeholder="photo" onChange={handleFormChange}  />
                                     </div>
+                                    <ActivitySelectorForm activities={activities} formData={formData} setFormData={setFormData}/>
                     
                                 </div>
                                 <button class="ui button" type="submit">Submit Edit</button>
