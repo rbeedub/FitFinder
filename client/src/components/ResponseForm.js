@@ -25,6 +25,9 @@ function ResponseForm({ user, event, setEvent }) {
             if(r.ok){
                 r.json().then(data => {
                     console.log("response", data)
+                    if(response=='yes') user.yesses = [...user.yesses, event]
+                    if(response=='maybe') user.maybes = [...user.maybes, event]
+                    if(response=='no') user.nos = [...user.nos, event]
                     setEvent(data)
                 })
             } else {

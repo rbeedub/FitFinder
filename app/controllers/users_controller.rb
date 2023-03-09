@@ -13,7 +13,7 @@ skip_before_action :authorize, only: :create
     end
 
     def show
-        render json: @user, status: :ok
+        render json: @user, status: :ok, serializer: LoggedInUserSerializer
     end
 
     def update
