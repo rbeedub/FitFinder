@@ -8,7 +8,7 @@ import { useState, useEffect } from "react"
 
 
 
-function EventDetails( {user, removeFromEvents, event_name, date_time, description, participants, location_name,location_zip, host_id, activity} ) {
+function EventDetails( {user, onFormSubmit, removeFromEvents, event_name, date_time, description, participants, location_name,location_zip, host_id, activity} ) {
 
 console.log("host.id", host_id)
 
@@ -49,7 +49,8 @@ return (
     removeFromEvents={removeFromEvents}
     user={user}
     host={event?.host}
-
+    event={event}
+    onFormSubmit={onFormSubmit}
 />
 </div>
 </div>

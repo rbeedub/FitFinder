@@ -12,7 +12,7 @@ function CreateEvent( { onEventSubmit, user } ) {
             description:'',
             participants:'',
             host_id: user.id,
-            activity_id: 97
+            activity_id: 112
         }
 
 const [formData, setFormData] = useState(initialData)

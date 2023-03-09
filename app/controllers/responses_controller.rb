@@ -6,12 +6,12 @@ class ResponsesController < ApplicationController
     end
 
     def create
-        response = Response.create(response_params)
+        response = Response.create!(response_params)
         render json: response, status: :created
     end
 
     def update
-        @response.update(response_params)
+        @response.update!(response_params)
         render json: @response, status: :accepted
     end
     

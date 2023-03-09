@@ -24,7 +24,7 @@ Activity.destroy_all
         age: Faker::Number.between(from: 18, to: 80),  
         username: Faker::Internet.unique.username, 
         password: "Password123!", 
-        bio: Faker::Lorem.paragraph(sentence_count: 2), 
+        bio: Faker::Hipster.paragraphs(number: 1).first, 
         location_zip: Faker::Address.postcode, 
         location_name: Faker::Address.city,  
         photo: "./images/#{num}.svg")

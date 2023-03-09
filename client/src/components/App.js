@@ -52,6 +52,14 @@ function App() {
     setEvents([...events, newEvent])
   }
 
+
+  function onFormSubmit(editedEvent){
+    console.log(`edit me!`)
+  const newEvent = events.map((event) => event.id == editedEvent.id ? editedEvent : event )
+    setEvents(newEvent)
+    console.log(editedEvent)
+  }
+
   function removeFromEvents(idObj){
     console.log(`Delete me!`)
     console.log('idObj', idObj)
@@ -67,21 +75,22 @@ function App() {
       <NavBar user={user} setUser={setUser} />
       <main>
         <Switch>
+        <Route path="/all_people">
+            <AllPeople
+            people={people} setPeople={setPeople} />
+          </Route>
           <Route path="/create_event">
             <CreateEvent
             onEventSubmit={onEventSubmit}
             user={user}
             />
-            <Route path="/all_people">
-            <AllPeople
-            people={people} setPeople={setPeople} />
-          </Route>
           </Route>
         <Route path="/event_details/:id">
             <EventDetails
             events={events}
             removeFromEvents={removeFromEvents}
             user={user}
+            onFormSubmit={onFormSubmit}
             />
           </Route>
         <Route exact path="/">

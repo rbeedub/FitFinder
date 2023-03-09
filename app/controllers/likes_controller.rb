@@ -7,7 +7,7 @@ class LikesController < ApplicationController
     end
 
     def create
-        like = Like.create(like_params)
+        like = Like.create!(like_params)
         render json: like, status: :created
     end
 

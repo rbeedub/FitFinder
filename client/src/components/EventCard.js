@@ -17,7 +17,9 @@ return (
     </div>
     <br></br>
     <div class="description">
-    <h5 class= "ui header">Description:</h5>{description}
+    <h5 class= "ui header">Description:</h5>
+    <br></br>
+    {description}
     </div>
     <br></br>
     </div>
@@ -26,13 +28,14 @@ return (
     Location: </h5> {location_name}
     </span>
     <br></br>
-    <span class="participants"><h5 class= "ui header">
+    {/* <span class="participants"><h5 class= "ui header">
     # of participants: </h5> {participants}
-    </span>
+    </span> */}
     <br></br>
     <span class="date_time"><h5 class= "ui header">
     Date: </h5> {date_time}
     </span>
+    <a class="ui teal right ribbon label">{participants} participants</a>
 </div>
 
 < NavLink to={`/event_details/${id}`}> <button class="ui button"> Details </button> </NavLink>
