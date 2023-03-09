@@ -69,47 +69,43 @@ function App() {
       <NavBar user={user} setUser={setUser} />
       <main>
         <Switch>
-        <Route path="/all_people">
+          <Route path="/all_people">
             <AllPeople
-            people={people} setPeople={setPeople} />
+              people={people} 
+              setPeople={setPeople}
+            />
           </Route>
           <Route path="/create_event">
             <CreateEvent
-            onEventSubmit={onEventSubmit}
-            user={user}
+              onEventSubmit={onEventSubmit}
+              user={user}
             />
           </Route>
-        <Route path="/event_details/:id">
+          <Route path="/event_details/:id">
             <EventDetails
-            events={events}
-            removeFromEvents={removeFromEvents}
-            user={user}
-            onFormSubmit={onFormSubmit}
+              events={events}
+              removeFromEvents={removeFromEvents}
+              user={user}
+              onFormSubmit={onFormSubmit}
             />
           </Route>
-        <Route exact path="/">
-            <Events user={user} events={events} setEvents={setEvents}/>
+          <Route exact path="/">
+              <Events 
+                user={user} 
+                events={events} 
+                setEvents={setEvents}
+              />
           </Route>
-        <Route path="/edit-profile">
-            <EditProfile user={user} setUser={setUser}/>
+          <Route path="/edit-profile">
+              <EditProfile 
+                user={user} 
+                setUser={setUser}
+              />
           </Route>
         </Switch>
       </main>
     </>
   );
-
-
-
-
-return (<>
-    {/* <Header/> */}
-    {/* <Switch>
-    </Switch> */}
-    <NavBar setUser={setUser}/>
-    <h2>{user ? user.username : "not logged in"}</h2>
-    <SignInPage setUser = {setUser}/>
-    {/* <p>hello world</p> */}
-</>)
 }
 
 export default App;

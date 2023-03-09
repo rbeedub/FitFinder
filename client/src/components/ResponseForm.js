@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-function ResponseForm({ user, event }) {
+function ResponseForm({ user, event, setEvent }) {
 
     const [response, setResponse] = useState("")
 
@@ -25,6 +25,7 @@ function ResponseForm({ user, event }) {
             if(r.ok){
                 r.json().then(data => {
                     console.log("response", data)
+                    setEvent(data)
                 })
             } else {
                 r.json().then(err => {

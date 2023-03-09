@@ -7,7 +7,8 @@ class EventsController < ApplicationController
     end
 
     def show
-        render json: @event, status: :ok
+        render json: @event, serializer: EventWithRsvpSerializer, status: :ok
+        #render json: @event, status: :ok
     end
 
     def create

@@ -4,17 +4,6 @@ import ErrorMsgList from './ErrorMsgList';
 
 function CreateEvent( { onEventSubmit, user } ) {
 
-    // const initialData = {
-    //     event_name:'',
-    //     location_name: '',
-    //     location_zip: '',
-    //     date_time: '',
-    //     description:'',
-    //     participants:'',
-    //     host_id: user.id,
-    //     activity_id: 112
-    // }
-
     const [formData, setFormData] = useState({})
     const [errors, setErrors] = useState([])
     const [activities, setActivities] = useState([])
