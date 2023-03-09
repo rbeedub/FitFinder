@@ -8,6 +8,8 @@ import EventDetails from './EventDetails'
 import EditProfile from './EditProfile'
 import AllPeople from './AllPeople'
 import CreateEvent from "./CreateEvent";
+import Header from "./Header";
+import MyFinds from "./MyFinds";
 
 function App() {
 
@@ -66,7 +68,9 @@ function App() {
 
   return (
     <>
-      <NavBar user={user} setUser={setUser} />
+    <Header
+    user={user} setUser={setUser}/>
+      {/* <NavBar user={user} setUser={setUser} /> */}
       <main>
         <Switch>
           <Route path="/all_people">
@@ -74,6 +78,9 @@ function App() {
               people={people} 
               setPeople={setPeople}
             />
+          </Route>
+          <Route path="/my-finds">
+            <MyFinds />
           </Route>
           <Route path="/create_event">
             <CreateEvent

@@ -10,20 +10,23 @@ function SignInPage ({ setUser }){
 
     // const errorMsgs = errors.length > 0 ? errors.map( (e, i) => <h4 key={i}>{e}</h4>) : null
     return (
+    <>
         <div>
             {showLogin ? <>
                 <SignIn setUser = {setUser} setErrors={setErrors}/> 
-                <button onClick={() => setShowLogin(!showLogin)}>Show Sign up</button>
+                <button class="ui button" onClick={() => setShowLogin(!showLogin)}>Show Sign up</button>
             </>
                 
             : <>
                 <SignUpForm setUser={setUser} setErrors={setErrors}/> 
-                <button onClick={() => setShowLogin(!showLogin)}>Show Log in</button>
+                <button class="ui button" onClick={() => setShowLogin(!showLogin)}>Show Log in</button>
             </> 
             }       
             <ErrorMsgList errors={errors}/>            
             {/* <SignUpForm setUser={setUser} setErrors={setErrors}/> */}
-        </div>
+            </div>
+
+    </>
     )
 }
 
