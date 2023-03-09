@@ -11,6 +11,12 @@ function SignInPage ({ setUser }){
     // const errorMsgs = errors.length > 0 ? errors.map( (e, i) => <h4 key={i}>{e}</h4>) : null
     return (
     <>
+
+    
+<div class="ui inverted teal segment">
+
+
+
         <div>
             {showLogin ? <>
                 <SignIn setUser = {setUser} setErrors={setErrors}/> 
@@ -25,7 +31,7 @@ function SignInPage ({ setUser }){
             <ErrorMsgList errors={errors}/>            
             {/* <SignUpForm setUser={setUser} setErrors={setErrors}/> */}
             </div>
-
+</div>
     </>
     )
 }

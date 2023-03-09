@@ -10,6 +10,7 @@ import AllPeople from './AllPeople'
 import CreateEvent from "./CreateEvent";
 import Header from "./Header";
 import MyFinds from "./MyFinds";
+import LandingPage from "./LandingPage";
 
 function App() {
 
@@ -64,7 +65,7 @@ function App() {
     setEvents(removeEvent)
   }
 
-  if (!user) return <SignInPage setUser = {setUser}/>;
+  if (!user) return <LandingPage setUser = {setUser}/>;
 
   return (
     <>
@@ -73,6 +74,13 @@ function App() {
       {/* <NavBar user={user} setUser={setUser} /> */}
       <main>
         <Switch>
+          
+        <Route path="/edit-profile">
+              <EditProfile 
+                user={user} 
+                setUser={setUser}
+              />
+          </Route>
           <Route path="/all_people">
             <AllPeople
               people={people} 
@@ -82,6 +90,7 @@ function App() {
           <Route path="/my-finds">
             <MyFinds user={user}/>
           </Route>
+
           <Route path="/create_event">
             <CreateEvent
               onEventSubmit={onEventSubmit}
@@ -96,6 +105,7 @@ function App() {
               onFormSubmit={onFormSubmit}
             />
           </Route>
+
           <Route exact path="/">
               <Events 
                 user={user} 
@@ -103,12 +113,7 @@ function App() {
                 setEvents={setEvents}
               />
           </Route>
-          <Route path="/edit-profile">
-              <EditProfile 
-                user={user} 
-                setUser={setUser}
-              />
-          </Route>
+
         </Switch>
       </main>
     </>

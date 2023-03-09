@@ -13,10 +13,21 @@ function MyFindsPeopleContainer({ user }) {
 
     return (
         <>
-            <h2>Following</h2>
-            <div class="ui fluid four cards">
+
+<div class="ui grid">
+<div class="one wide column">    </div>
+
+  <div class="three wide column">   <h2>Following</h2> </div>
+  <div class="nine wide column">
+  <div class="ui fluid link cards">
                 {likedCards}
             </div>
+  </div>
+  <div class="three wide column">  </div>
+</div>
+
+
+
         </>
     )
 }

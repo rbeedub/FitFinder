@@ -16,6 +16,9 @@ return (
     <a class="item">
         < NavLink to="/my-finds"> My Finds </NavLink>
     </a>
+    <a class="item">
+        < NavLink to="/edit-profile"> My Profile </NavLink>
+    </a>
     <div class="right menu">
         <a class="ui item active">
         <NavBar
