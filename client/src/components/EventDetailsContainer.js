@@ -165,7 +165,7 @@ return(
     <div class="ui segment">
 
     </div>
-    <AttendanceCard />
+    <AttendanceCard event={event} user={user}/>
     <EventCommentForm />
     </div>
 
