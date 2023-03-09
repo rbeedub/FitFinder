@@ -5,7 +5,7 @@ return (
 <>
 <div class="ui form">
 <div class="inline fields">
-<label for="fruit">Are you going?:</label>
+<label for="fruit">Are you going?</label>
 <div class="field">
     <div class="ui radio checkbox">
     <input type="radio" name="yes" checked="" tabindex="0" class="hidden"/>

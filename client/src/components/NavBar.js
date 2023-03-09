@@ -16,7 +16,7 @@ return (
 <>
 {/* < NavLink to="/"> <button class="ui button"> All Events </button> </NavLink> */}
 
-< NavLink to="/" ><img class="ui fluid image" src="./images/FitFinderBanner.svg" alt="placeholder"/></NavLink>
+< NavLink to="/"><img class="ui fluid image" src="./images/banner.svg" alt="placeholder"/></NavLink>
 
     <LogOutButton handleLogOutClick={handleLogOutClick}/>
 </>
