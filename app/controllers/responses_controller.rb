@@ -6,8 +6,14 @@ class ResponsesController < ApplicationController
     end
 
     def create
-        response = Response.create!(response_params)
-        render json: response, status: :created
+        response = Response.find_by(user_id: response_params[:user_id], event_id: response_params[:event_id])
+        if response
+            response.update!(response_params)
+            render json: response, status: :accepted
+        else 
+            response = Response.create!(response_params)
+            render json: response, status: :created
+        end  
     end
 
     def update

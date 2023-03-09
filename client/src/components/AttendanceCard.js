@@ -1,11 +1,11 @@
 import React from "react";
 import ResponseForm from "./ResponseForm";
 
-function AttendanceCard() {
+function AttendanceCard({ user, event }) {
 return(
 <>
 
-<ResponseForm/>
+<ResponseForm user={user} event={event}/>
 
 </>
 )
