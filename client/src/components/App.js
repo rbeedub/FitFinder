@@ -94,7 +94,7 @@ function App() {
             />
           </Route>
         <Route exact path="/">
-            <Events user={user} events={events} />
+            <Events user={user} events={events} setEvents={setEvents}/>
           </Route>
         <Route path="/edit-profile">
             <EditProfile user={user} setUser={setUser}/>
