@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-function ResponseForm({ user, event, setEvent }) {
+function ResponseForm({ user, event, setEvent, setUser }) {
 
     const [response, setResponse] = useState("")
 
@@ -25,10 +25,13 @@ function ResponseForm({ user, event, setEvent }) {
             if(r.ok){
                 r.json().then(data => {
                     console.log("response", data)
-                    if(response=='yes') user.yesses = [...user.yesses, event]
-                    if(response=='maybe') user.maybes = [...user.maybes, event]
-                    if(response=='no') user.nos = [...user.nos, event]
                     setEvent(data)
+                    let newUser
+                    if(response=='yes') newUser = {...user, yesses: [...user.yesses, event], maybes: user.maybes.filter(e => e.id != event.id), nos: user.nos.filter(e => e.id!=event.id)}
+                    if(response=='maybe') newUser = {...user, maybes: [...user.maybes, event], yesses: user.yesses.filter(e => e.id != event.id), nos: user.nos.filter(e => e.id!=event.id)}
+                    if(response=='no') newUser = {...user, nos: [...user.nos, event], maybes: user.maybes.filter(e => e.id != event.id), yesses: user.yesses.filter(e => e.id!=event.id)}
+                    console.log("newUser", newUser)
+                    setUser(newUser)
                 })
             } else {
                 r.json().then(err => {
