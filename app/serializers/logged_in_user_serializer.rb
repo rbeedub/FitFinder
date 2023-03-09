@@ -13,6 +13,7 @@ class LoggedInUserSerializer < ActiveModel::Serializer
     :nos
   
   has_many :liked_users
+  has_many :activities
   
   def yesses
     ids = object.responses.filter {|r| r.response == 'yes'}.map(&:event_id)
