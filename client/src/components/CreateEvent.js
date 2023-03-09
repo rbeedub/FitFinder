@@ -118,7 +118,7 @@ function CreateEvent( { onEventSubmit, user } ) {
                                             </select>
                                         </div>
                                     </div>
-                                    <button class="ui button" type="submit">Submit</button>
+                                    <button class="ui teal button" type="submit">Submit</button>
                                 </div>
                             </div>
                         </form>
@@ -126,12 +126,11 @@ function CreateEvent( { onEventSubmit, user } ) {
                     </div>
                 </div>
                 <div class="column">
-                    <div>
-                    </div>
+                    <video src={GroupWorkout} autoPlay loop={true} /> 
                 </div>
 
             </div>
-            <button class="ui teal button" type="submit">Submit</button>
+            {/* <button class="ui teal button" type="submit">Submit</button> */}
             </div>
         </div>
     {/* </form> */}
@@ -140,7 +139,7 @@ function CreateEvent( { onEventSubmit, user } ) {
     </div>
     </div>
     <div class="column">
-    <video src={GroupWorkout} autoPlay loop={true} /> 
+    {/* <video src={GroupWorkout} autoPlay loop={true} />  */}
     </div>
     </div> 
 
