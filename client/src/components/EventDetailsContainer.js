@@ -175,7 +175,7 @@ return(
                  </div>
             </form>
         </div>
-    <ErrorMsgList errors={errors} />
+    {/* <ErrorMsgList errors={errors} /> */}
     </div>
 </>
 }
@@ -192,7 +192,7 @@ return(
     {/* {yesses?.length>0 ? <PeopleContainer people={yesses} /> : null}
     {nos?.length>0 ? <PeopleContainer people={nos} /> : null}
     {maybes?.length>0 ? <PeopleContainer people={maybes} /> : null} */}
-    <EventCommentForm />
+    {/* <EventCommentForm /> */}
     </div>
 
 
