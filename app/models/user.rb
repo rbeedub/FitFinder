@@ -2,6 +2,7 @@ class User < ApplicationRecord
 
     has_many :responses, dependent: :destroy
     has_many :user_activities, dependent: :destroy
+    has_many :activities, through: :user_activities
     has_many :likes, foreign_key: :liker_id, dependent: :destroy
     has_many :likers, foreign_key: :liked_id, class_name: "Like", dependent: :destroy
 
