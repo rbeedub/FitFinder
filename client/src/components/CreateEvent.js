@@ -59,7 +59,7 @@ function CreateEvent( { onEventSubmit, user } ) {
 <div class="ui equal width grid">
 
 <div class="column">
-<video src={WorkoutVid} autoPlay loop={true} />
+{/* <video src={WorkoutVid} autoPlay loop={true} /> */}
 </div>
                 <div class="eight wide column">
                     <div class="ui segment">
@@ -115,7 +115,7 @@ function CreateEvent( { onEventSubmit, user } ) {
                     </div>
                 </div>
                 <div class="column">
-                    <video src={GroupWorkout} autoPlay loop={true} /> 
+                    {/* <video src={GroupWorkout} autoPlay loop={true} />  */}
                 </div>
 
             </div>
