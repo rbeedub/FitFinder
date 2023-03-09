@@ -66,7 +66,7 @@ function ResponseForm({ user, event, setEvent, setUser }) {
                         </div>
                     </div>
                 </div>
-                <button type="submit">Submit RSVP</button>
+                <button class="ui button" type="submit">Submit RSVP</button>
             </div>
         </form>
     )

@@ -7,10 +7,10 @@ return (
 <>
 <video src={LandingPageMovie} autoPlay loop={true} />
 <div class="ui hidden divider"></div>
-<img src="./images/AboutFitFinder.svg"/>
+<img class= "ui fluid image" src="./images/AboutFitFinder.svg"/>
 <div class="ui hidden divider"></div>
 <div> 
-    
+
 </div>
 <SignInPage
 setUser = {setUser} 
