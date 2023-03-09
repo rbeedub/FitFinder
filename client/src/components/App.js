@@ -80,7 +80,7 @@ function App() {
             />
           </Route>
           <Route path="/my-finds">
-            <MyFinds />
+            <MyFinds user={user}/>
           </Route>
           <Route path="/create_event">
             <CreateEvent
