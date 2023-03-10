@@ -5,7 +5,7 @@ import { NavLink } from "react-router-dom"
 function Header( { user, setUser} ) {
 return (
 <>
-< NavLink to="/"><img class="ui fluid image" src="./images/banner.svg" alt="placeholder"/></NavLink>
+< NavLink to="/"><img class="ui fluid image" src="/images/banner.svg" alt="placeholder"/></NavLink>
     <div class="ui secondary pointing menu">
     <a class="item">
     < NavLink to="/">Events</NavLink> 
