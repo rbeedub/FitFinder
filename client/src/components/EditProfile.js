@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from "react";
 import EditProfileForm from "./EditProfileForm";
 import MyFindsPeopleContainer from "./MyFindsPeopleContainer";
+import UserCard from "./UserCard";
 
 function EditProfile({ user, setUser }) {
 
@@ -14,10 +15,23 @@ function EditProfile({ user, setUser }) {
 
     return(
         <>
+        <div class="ui grid">
+    <div class="six wide column">
+    <div class="ui teal segment">
+    <UserCard 
+            user={user}/>
+</div>
 
-            <h1>user card details render here</h1>
+    </div>
+  <div class="ten wide column">  
+  <EditProfileForm user={user} setUser={setUser} activities={activities}/>
+  </div>
+</div>
+
             {/* <MyFindsPeopleContainer /> */}
-            <EditProfileForm user={user} setUser={setUser} activities={activities}/>
+            {/* <UserCard 
+            user={user}/>
+            <EditProfileForm user={user} setUser={setUser} activities={activities}/> */}
 
         </>
     )

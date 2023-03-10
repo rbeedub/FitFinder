@@ -9,7 +9,7 @@ function FavoriteEventsContainer({ user }) {
 
     return (
         <>
-            <h2>Attending</h2>
+
             <div class="ui fluid four cards">
                 {yesCards}
             </div>

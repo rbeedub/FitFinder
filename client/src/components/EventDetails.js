@@ -27,7 +27,7 @@ function EventDetails( {user, onFormSubmit, removeFromEvents, event_name, date_t
         <>
             <div class="row">
                 <div class="three wide column">
-                    < NavLink to="/"> <button class="ui button"> All Events </button> </NavLink>
+                    {/* < NavLink to="/"> <button class="ui button"> All Events </button> </NavLink> */}
                 </div>
                 <div class="thirteen wide column">
                     <EventDetailsContainer
