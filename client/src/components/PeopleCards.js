@@ -4,7 +4,7 @@ import { NavLink } from 'react-router-dom';
 
 function PeopleCards({ user, p, name, username, bio, age, location_name, location_zip, photo, activities, likes, setLikes, setUser }) {
 
-    const [isLiked, setIsLiked] = useState(user.liked_users.map((u) => u?.id).includes(p.id))
+    const [isLiked, setIsLiked] = useState(user.liked_users?.map((u) => u?.id).includes(p.id))
 
     function handleLike() {
         // setIsLike onClick={}d(!isLiked).then(() => onLike())
@@ -76,13 +76,14 @@ function PeopleCards({ user, p, name, username, bio, age, location_name, locatio
 
 </div>
 <div class="content">
-    <div class="header">{name}</div>
+{/* <div class="header">{name}</div> */}
+<div class="header">@{username}</div>
     <div class="meta">
     <a>Age: {age}</a>
     </div>
-    <div class="bio">
+    {/* <div class="bio">
     {bio}
-    </div>
+    </div> */}
     <div>{activityTags}</div>
 </div>
 <div class="extra content">

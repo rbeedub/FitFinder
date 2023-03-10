@@ -1,4 +1,5 @@
 import React, {useState} from 'react'
+import { useHistory } from 'react-router-dom'
 
 function SignIn({ setUser, setErrors }) {
     //console.log("setUser from Signin", setUser)
@@ -10,6 +11,7 @@ function SignIn({ setUser, setErrors }) {
         }
 
 const [formData, setFormdata] = useState(initialData)
+        const history = useHistory()
 
 // function handleFormChange(e) {
 //     const {name, value} = e.target;
@@ -49,7 +51,7 @@ const [username, setUsername] = useState("");
     }).then((r) => {
       setIsLoading(false);
       if (r.ok) {
-        r.json().then((user) => setUser(user));
+        r.json().then((user) => setUser(user)).then(()=>history.push('/'));
       } else {
         r.json().then((err) => setErrors(err.errors));
       }

@@ -30,12 +30,12 @@ function App() {
       }
     });
 
-   // get users
-    fetch("/users").then((r) => {
-      if (r.ok) {
-        r.json().then((data) => setPeople(data));
-      }
-    });
+  //  // get users
+  //   fetch("/users").then((r) => {
+  //     if (r.ok) {
+  //       r.json().then((data) => setPeople(data));
+  //     }
+  //   });
     
     // get events
     fetch("/events").then((r) => {

@@ -9,7 +9,7 @@ skip_before_action :authorize, only: [:create, :userDetail]
     def create
         @user = User.create!(user_params)
         session[:user_id] = @user.id 
-        render json: @user, status: :created
+        render json: @user, status: :created, serializer: LoggedInUserSerializer
     end
 
     def show
@@ -23,7 +23,7 @@ skip_before_action :authorize, only: [:create, :userDetail]
 
     def update
         @user.update!(user_params)
-        render json: @user, status: :accepted
+        render json: @user, status: :accepted, serializer: LoggedInUserSerializer
     end
 
     def destroy
