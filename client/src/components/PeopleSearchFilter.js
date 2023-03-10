@@ -2,8 +2,9 @@ import React from "react";
 
 function PeopleSearchFilter() {
 return(
+
 <div class="ui vertical text menu">
-<div class="header teal item">Sort By</div>
+<div class="header item">Sort By</div>
 <a class="active item">
 Age
 </a>
