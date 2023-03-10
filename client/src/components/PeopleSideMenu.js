@@ -6,10 +6,10 @@ import fitSideBanner from '../assets/FitSideBannerMovie.mp4'
 
 
 
-function PeopleSideMenu() {
+function PeopleSideMenu({ searchCriteria, setSearchCriteria, sortAsc, setSortAsc }) {
 return (
 <>
-<PeopleSearchFilter/>
+<PeopleSearchFilter searchCriteria={searchCriteria} setSearchCriteria={setSearchCriteria} sortAsc={sortAsc} setSortAsc={setSortAsc}/>
 
 <div>
 <video src={fitSideBanner} autoPlay loop={true} /> 

@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import SideMenu from "./SideMenu";
 import EventsContainer from "./EventsContainer";
 import CreateEvent from "./CreateEvent";
@@ -6,6 +6,8 @@ import EventMenu from "./EventMenu";
 import fitSideBanner from '../assets/FitSideBannerMovie.mp4'
 
 function Events({ events, setEvents }) {
+
+  const [searchCriteria, setSearchCriteria] = useState("")
 
   useEffect(() => {
     fetch("/events").then((r) => {
@@ -15,6 +17,20 @@ function Events({ events, setEvents }) {
     });
   }, [])
 
+  let sortedEvents = events
+  if(searchCriteria == 'date'){
+    sortedEvents = [...events].sort((p1, p2) => p1.date_time < p2.date_time ? -1 : 1)
+  } else if(searchCriteria == 'name'){
+    sortedEvents = [...events].sort((p1, p2) => p1.event_name - p2.event_name )
+  } else if(searchCriteria == 'city'){
+    sortedEvents = [...events].sort((p1, p2) => p1.location_name < p2.location_name ? -1 : 1)
+  } else if(searchCriteria == 'participants'){
+    sortedEvents = [...events].sort((p1, p2) => p2.participants - p1.participants)
+  } else if(searchCriteria == 'skill'){
+    sortedEvents = [...events].sort((p1, p2) => p1.skill_level.skill_level - p2.skill_level.skill_level)
+  }
+
+
 return (
 
 
@@ -22,12 +38,12 @@ return (
 <div class="ui menu">
 
     <div class="four wide column">
-    <SideMenu />
+    <SideMenu searchCriteria={searchCriteria} setSearchCriteria={setSearchCriteria}/>
     </div>
     
     <div class= "eight wide column">
 
-    <EventsContainer events={events} />
+    <EventsContainer events={sortedEvents} />
     </div>
 
         <div class="four wide column">
