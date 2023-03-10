@@ -14,6 +14,7 @@ class LoggedInUserSerializer < ActiveModel::Serializer
     :nos #exclude for peopledetail
   
   has_many :liked_users
+  has_many :hosted_events
   #has_many :activities
 
   #user: activties: [{activity:"jiu jitsu", id: 142, skill: 3}]
@@ -39,7 +40,7 @@ class LoggedInUserSerializer < ActiveModel::Serializer
     object.activities.map do |a| 
       ua_id = user_activities.find {|ua| ua.activity_id == a.id}
       skill_level = levels.find {|l| l.skillable_id = ua_id}.skill_level
-      return {
+      {
         activity: a.activity, 
         id: a.id, 
         skill_level: skill_level
