@@ -205,10 +205,24 @@ return(
 <div>
     </div>
     </div>
-    <div class="ui segment">
+    <div class="ui grid">
+  <div class="three column row">
+    <div class="column"></div>
+    <div class="column">
+    <div class="ui basic segment">
+    <div class="ui floating message">
+    <AttendanceCard event={event} user={user} setEvent={setEvent} setUser={setUser}/>
+    </div>
+    </div>
 
     </div>
-    <AttendanceCard event={event} user={user} setEvent={setEvent} setUser={setUser}/>
+    <div class="column"></div>
+  </div>
+  </div>
+
+    
+
+
     {/* <Respondants event={event} /> */}
     {/* {event?.respondants.length >0 ? <PeopleContainer people={event?.respondants}/> : null} */}
     {/* {yesses?.length>0 ? <PeopleContainer people={yesses} /> : null}

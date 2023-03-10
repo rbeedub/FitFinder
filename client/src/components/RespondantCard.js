@@ -1,6 +1,6 @@
 function RespondantCard({ respondant }){
 
-    console.log("respondant", respondant)
+    // console.log("respondant", respondant)
     // if (!event?.respondants || event.respondants.length==0) return null
 
     return(
@@ -18,7 +18,7 @@ function RespondantCard({ respondant }){
         {respondant.name}
         </a> */}
         <a class="ui teal image label">
-        <img src={respondant.photo}/>
+        {/* <img src={respondant.photo}/> */}
         {respondant.name}
         {/* <div class="detail"> {respondant.location_name}</div> */}
         </a>
