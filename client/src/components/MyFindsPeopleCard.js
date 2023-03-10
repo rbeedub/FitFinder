@@ -46,7 +46,7 @@ function MyFindsPeopleCard({ liked }){
         </span>
         <span>
         <i class="heart icon"></i>
-            likes go here
+
         </span>
         </div>
 
