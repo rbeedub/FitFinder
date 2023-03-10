@@ -11,6 +11,7 @@ import CreateEvent from "./CreateEvent";
 import Header from "./Header";
 import MyFinds from "./MyFinds";
 import LandingPage from "./LandingPage";
+import PersonDetail from "./PersonDetail";
 
 function App() {
 
@@ -86,6 +87,10 @@ function App() {
               <EditProfile 
                 user={user} 
                 setUser={setUser}
+              />
+              </Route> 
+                 <Route path="/person-details/:id">
+              <PersonDetail 
               />
           </Route>
           <Route path="/all_people">

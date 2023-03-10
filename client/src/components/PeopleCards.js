@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { NavLink } from 'react-router-dom';
 
 
 function PeopleCards({ user, p, name, username, bio, age, location_name, location_zip, photo, activities, likes, setLikes, setUser }) {
@@ -6,7 +7,7 @@ function PeopleCards({ user, p, name, username, bio, age, location_name, locatio
     const [isLiked, setIsLiked] = useState(user.liked_users.map((u) => u?.id).includes(p.id))
 
     function handleLike() {
-        // setIsLiked(!isLiked).then(() => onLike())
+        // setIsLike onClick={}d(!isLiked).then(() => onLike())
         onLike()
         setIsLiked(!isLiked)
     }
@@ -57,16 +58,22 @@ function PeopleCards({ user, p, name, username, bio, age, location_name, locatio
     }
 }
 
+
     const activityTags = activities.map(a => {
         return <div class="ui horizontal label">{`${a.activity}`} </div>
     })
 
+    function handleImgClick() {
+
+    }
+
 
     return (
-
+<>
 <div class="teal card">
 <div class="photo">
-    <img src={photo}/>
+< NavLink to={`/person-details/${p.id}`}> <img src={photo}/> </NavLink>
+
 </div>
 <div class="content">
     <div class="header">{name}</div>
@@ -93,7 +100,7 @@ function PeopleCards({ user, p, name, username, bio, age, location_name, locatio
     </span>
     </div>
 </div>
-
+</>
 )
 }
 
