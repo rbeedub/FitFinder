@@ -7,6 +7,7 @@ class User < ApplicationRecord
     has_many :likers, foreign_key: :liked_id, class_name: "Like", dependent: :destroy
 
     has_many :liked_users, through: :likes, source: :liked
+    has_many :liker_users, through: :likes, source: :liker
 
     has_many :profile_activities, through: :user_activities, source: :activity
     has_many :skill_levels, through: :user_activities
