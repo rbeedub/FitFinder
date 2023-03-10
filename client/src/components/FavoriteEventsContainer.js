@@ -3,7 +3,7 @@ import FavoriteEventsDetailsCard from "./FavoriteEventDetailsCard";
 
 function FavoriteEventsContainer({ user }) {
 
-    const yesCards = user.yesses.map(e=> {
+    const yesCards = user.yesses?.map(e=> {
         return <FavoriteEventsDetailsCard key={e.id} event={e} />
     })
 

@@ -6,7 +6,7 @@ class SessionsController < ApplicationController
     user = User.find_by(username: params[:username])
     if user&.authenticate(params[:password])
       session[:user_id] = user.id
-      render json: user, status: :ok
+      render json: user, status: :ok, serializer: LoggedInUserSerializer
     else
       render json: {errors: ["Username or password invalid"]}, status: :unauthorized
     end
