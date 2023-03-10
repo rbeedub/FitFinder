@@ -58,12 +58,12 @@ function EditProfileForm({ user, setUser, activities }) {
         <>
             <ErrorMsgList errors={errors}/>
             {profileUpdated ? <ProfileUpdatedMsg /> : null}
-            <div class="ui equal width grid">
+            {/* <div class="ui equal width grid">
                 <div class="column">
                     <div class="ui basic segment"></div>
                 </div>
-            <div class="eight wide column">
-                <div class="ui segment">
+    <div class="eight wide column">*/}
+                <div class="ui segment"> 
                     <form class="ui form" onSubmit={handleFormSubmit}>
                          <div class="ui one column">
                             <div >
@@ -103,18 +103,19 @@ function EditProfileForm({ user, setUser, activities }) {
                                     <ActivitySelectorForm activities={activities} formData={formData} setFormData={setFormData}/>
                     
                                 </div>
-                                <button class="ui button" type="submit">Submit Edit</button>
+                                <button class="ui teal button" type="submit">Submit Edit</button>
                             </div>
                         </div>
                     </form>
-                </div>
-            </div>
+                    </div>
+                {/* </div>
+            </div> */}
             <div class="column">
                 <div class="ui basic segment">
-                    <button class="ui button" type="submit" onClick={handleDeleteAccount}>Delete Your Profile</button>
+                    <button class="ui pink button" type="submit" onClick={handleDeleteAccount}>Delete Your Profile</button>
                 </div>
             </div>
-        </div>              
+        {/* </div>               */}
     </>
     )
 }

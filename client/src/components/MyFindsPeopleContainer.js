@@ -14,6 +14,13 @@ function MyFindsPeopleContainer({ user }) {
     return (
         <>
 
+      <div class="ui cards">
+      {likedCards}
+      </div>
+
+{/* 
+
+
 <div class="ui grid">
 <div class="one wide column">    </div>
 
@@ -24,7 +31,7 @@ function MyFindsPeopleContainer({ user }) {
             </div>
   </div>
   <div class="three wide column">  </div>
-</div>
+</div> */}
 
 
 
