@@ -1,13 +1,17 @@
 class LikesController < ApplicationController
 
-    before_action :set_like, only: [:show, :destroy]
+    before_action :set_like, only: [:show]
     
     def show
         render json: @like, status: :ok
     end
 
     def create
-        like = Like.create!(like_params)
+        like = Like.find_by(like_params)
+        if like
+        else 
+            like = Like.create!(like_params)
+        end 
         render json: like.liker, status: :created, serializer: LoggedInUserSerializer
     end
 

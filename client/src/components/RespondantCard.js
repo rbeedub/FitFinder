@@ -18,7 +18,7 @@ function RespondantCard({ respondant }){
         {respondant.name}
         </a> */}
         <a class="ui teal image label">
-        {/* <img src={respondant.photo}/> */}
+        <img src={respondant.photo}/>
         {respondant.name}
         {/* <div class="detail"> {respondant.location_name}</div> */}
         </a>

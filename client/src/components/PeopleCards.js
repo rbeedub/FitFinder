@@ -85,7 +85,9 @@ function PeopleCards({ user, p, name, username, bio, age, location_name, locatio
     <span>
         <div onClick={handleLike}>
         {isLiked === true ? 
-        <i class="heart icon"></i> :
+        // <i class="heart icon" style={{color: "pink"}}>
+             <i class="pink like icon" >
+        </i> :
         <i class="heart outline icon"></i>}
         </div>
     </span>
