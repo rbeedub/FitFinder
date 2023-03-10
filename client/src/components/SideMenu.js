@@ -3,10 +3,10 @@ import SearchFilter from "./SearchFilter"
 import CreateEvent from "./CreateEvent"
 import { NavLink } from "react-router-dom";
 
-function SideMenu() {
+function SideMenu({ searchCriteria, setSearchCriteria}) {
 return(
 <>
-  <SearchFilter />
+  <SearchFilter searchCriteria={searchCriteria} setSearchCriteria={setSearchCriteria}/>
   <div>
     {/* <img src="./images/FitSideBanner.svg"/>
   <p>Is there an event you want to create?</p> */}
