@@ -8,7 +8,7 @@ class LikesController < ApplicationController
 
     def create
         like = Like.create!(like_params)
-        render json: like, status: :created
+        render json: like.liker, status: :created, serializer: LoggedInUserSerializer
     end
 
     # def update
@@ -17,8 +17,11 @@ class LikesController < ApplicationController
     # end
 
     def destroy
+        @like = Like.find_by(like_params)
+        user = @like.liker
         @like.delete
-        head :no_content
+        render json: user, serializer: LoggedInUserSerializer
+        # head :no_content
     end
 
     private

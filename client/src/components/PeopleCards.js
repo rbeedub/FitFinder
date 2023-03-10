@@ -1,13 +1,61 @@
 import React, { useState } from 'react'
 
 
-function PeopleCards({ name, username, bio, age, location_name, location_zip, photo, activities }) {
+function PeopleCards({ user, p, name, username, bio, age, location_name, location_zip, photo, activities, likes, setLikes, setUser }) {
 
-    const [isLiked, setIsLiked] = useState(false)
+    const [isLiked, setIsLiked] = useState(user.liked_users.map((u) => u?.id).includes(p.id))
 
     function handleLike() {
+        // setIsLiked(!isLiked).then(() => onLike())
+        onLike()
         setIsLiked(!isLiked)
     }
+
+    function onLike() {
+
+        const newLike = {
+            liker_id: user.id,
+            liked_id: p.id
+        }
+
+        if (isLiked === false) {
+            fetch("/likes", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(newLike)
+            })
+            .then((r)=> {
+                if(r.ok){
+                    r.json().then(like => {
+                        console.log("liked", like)
+                        setUser(like)
+                    })
+                } else {
+                    // r.json().then(err => setErrors(err.errors))
+                }
+            })
+        } else if (isLiked === true) {
+            fetch(`/unlikes`, {
+                method: 'POST',
+                headers: {
+                    "Content-type": "application/json"
+                },
+                body: JSON.stringify(newLike)
+            })
+            .then((r)=> {
+                if(r.ok){
+                    r.json().then(unlike => {
+                        console.log("unliked", unlike)
+                        setUser(unlike)
+                    })
+                } else {
+                    // r.json().then(err => setErrors(err.errors))
+                }
+        })
+    }
+}
 
     const activityTags = activities.map(a => {
         return <div class="ui horizontal label">{`${a.activity}`} </div>
@@ -36,8 +84,8 @@ function PeopleCards({ name, username, bio, age, location_name, location_zip, ph
     </span>
     <span>
         <div onClick={handleLike}>
-        {isLiked == true ? 
-        <i class="heart icon" onClick={handleLike}></i> :
+        {isLiked === true ? 
+        <i class="heart icon"></i> :
         <i class="heart outline icon"></i>}
         </div>
     </span>

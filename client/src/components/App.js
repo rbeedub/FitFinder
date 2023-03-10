@@ -16,7 +16,8 @@ function App() {
 
   const [user, setUser] = useState(null);
   const [events, setEvents] = useState([]);
-  const [people, setPeople] = useState([])
+  const [people, setPeople] = useState([]);
+  const [likes, setLikes] = useState([]);
   //console.log(user)
   // const [user, setUser] = useState(null);
 
@@ -41,6 +42,12 @@ function App() {
         r.json().then((data) => setEvents(data));
       }
     });
+
+    // fetch("/likes").then((r) => {
+    //   if (r.ok) {
+    //     r.json().then((data) => setLikes(data));
+    //   }
+    // });
 
   }, []);
 
@@ -83,8 +90,12 @@ function App() {
           </Route>
           <Route path="/all_people">
             <AllPeople
+              user={user}
+              setUser={setUser}
               people={people} 
               setPeople={setPeople}
+              likes={likes}
+              setLikes={setLikes}
             />
           </Route>
           <Route path="/my-finds">
