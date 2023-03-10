@@ -60,7 +60,7 @@ function PeopleCards({ user, p, name, username, bio, age, location_name, locatio
 
 
     const activityTags = activities.map(a => {
-        return <div class="ui horizontal label">{`${a.activity}`} </div>
+        return <div key={a.id} class="ui horizontal teal label">{`${a.activity}`} <div class="detail">{a.skill_level}</div></div>
     })
 
     function handleImgClick() {
