@@ -105,7 +105,12 @@ return(
 <div class="ui segment">
 <div class="ui medium header">Event Details</div>
     <div class="ui segment">
-    <div class="ui two column grid">
+    <div class="ui three column grid">
+    <div class="column">
+        <br></br>
+        <br></br>
+    <img class="ui fluid image" src="https://m.media-amazon.com/images/M/MV5BOTZjNjQzZDAtYzUyNi00YzE5LTk5MmMtZGY1NzVkYzRlMGQ4XkEyXkFqcGdeQXVyMTkxNjUyNQ@@._V1_.jpg"/>
+    </div>
     <div class="column">
     <h4 class="ui header">Date / Time: </h4> {date_time}
     <br></br>
@@ -130,7 +135,12 @@ return(
 </div>
 
 <div class="ui segment">
-<div class="ui medium header">Hosted by: <img class="ui small circular image" src={host?.image}/> {host?.name} </div>
+<div class="ui medium header">Hosted by: </div>
+<a class="ui huge label">
+  <img class="ui right spaced image" src={host?.photo}/>
+  {host?.name} 
+</a>
+ {/* <img class="ui tiny image" src={host?.photo}/>{host?.name} </div> */}
 </div>
 <div class="ui large buttons">
 {user.id == host?.id ?
