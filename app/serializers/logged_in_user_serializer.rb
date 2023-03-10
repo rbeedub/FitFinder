@@ -35,17 +35,16 @@ class LoggedInUserSerializer < ActiveModel::Serializer
   end
 
   def activities
-    levels = object.skill_levels
-    user_activities = object.user_activities
-    object.activities.map do |a| 
-      ua_id = user_activities.find {|ua| ua.activity_id == a.id}
-      skill_level = levels.find {|l| l.skillable_id = ua_id}.skill_level
+    result = object.activities.map do |a|
+      ua = UserActivity.find_by(user_id: object.id, activity_id: a.id)
+      level = SkillLevel.find_by(skillable_id: ua.id, skillable_type: "UserActivity")
       {
         activity: a.activity, 
         id: a.id, 
-        skill_level: skill_level
+        skill_level: level.skill_level
       }
     end
+    result 
   end
 
 end

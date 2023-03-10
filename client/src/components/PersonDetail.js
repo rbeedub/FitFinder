@@ -10,14 +10,14 @@ function PersonDetail(){
 
     const [person, setPerson] = useState({})
     const [activities, setActivities] = useState([])
-    const {id} = useParams()
+    const params = useParams()
 
     useEffect(() => {
         getPerson()
-    }, [])
+    }, [params.id])
 
     function getPerson() {
-        fetch(`/userDetail/${id}`)
+        fetch(`/userDetail/${params.id}`)
         .then(r => r.json())
         .then(person => {
             setPerson(person)
@@ -29,7 +29,7 @@ function PersonDetail(){
     // console.log(person)
 
     const rsvpEventCards = person.yesses?.map(e => <RSVPMiniEventCard key={e.id} person={person} event={e}/>)
-    // const hostedEventCards = person.hosted_events.map(e => <MiniEventCard person={person} event={e}/>)
+    const hostedEventCards = person.hosted_events?.map(e => <MiniEventCard person={person} event={e}/>)
     const followingDetailCard = person.liked_users?.map(e => <FollowingItem key={e.id} following={e} />)
     
     // const miniActivityCard = person.activities?.map((e) => {
@@ -68,7 +68,7 @@ return (
     <div class="ui segment">
 {/* <MiniEventCard
 person={person} />*/}
-
+{hostedEventCards}
     </div>
 </div>
 </div>

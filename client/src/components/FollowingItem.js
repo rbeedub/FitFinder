@@ -1,5 +1,5 @@
 import React from "react"
-import { Link } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 
 function FollowingItem( {following} ) {
     console.log(following)
@@ -8,7 +8,7 @@ function FollowingItem( {following} ) {
 <div class="item">
     <img class="ui avatar image" src={following.photo}/>
     <div class="content">
-      <div class="header"><Link to={`/person-details/${following.id}`}>{following.name}</Link></div>
+      <div class="header"><NavLink to={`/person-details/${following.id}`}>{following.name}</NavLink></div>
       {/* <div class="description">Last seen watching <a><b>Arrested Development</b></a> just now.</div> */}
     </div>
   </div>

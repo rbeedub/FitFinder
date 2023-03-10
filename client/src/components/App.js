@@ -89,9 +89,8 @@ function App() {
                 setUser={setUser}
               />
               </Route> 
-                 <Route path="/person-details/:id">
-              <PersonDetail 
-              />
+          <Route path="/person-details/:id">
+            <PersonDetail />
           </Route>
           <Route path="/all_people">
             <AllPeople
