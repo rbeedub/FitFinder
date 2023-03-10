@@ -46,6 +46,7 @@ function EventDetails( {user, onFormSubmit, removeFromEvents, event_name, date_t
                         onFormSubmit={onFormSubmit}
                         setEvent={setEvent}
                         setUser={setUser}
+                        image={event.image}
                     />
                 </div>
             </div>

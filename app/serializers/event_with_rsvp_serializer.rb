@@ -1,5 +1,5 @@
 class EventWithRsvpSerializer < ActiveModel::Serializer
-  attributes :id, :location_name, :event_name, :location_zip, :date_time, :recurring, :description, :participants, :host, :activity, :yesses, :maybes, :nos
+  attributes :id, :location_name, :event_name, :location_zip, :date_time, :recurring, :description, :participants, :host, :activity,:image, :yesses, :maybes, :nos
   #has_many :responses
   #has_many :respondants
   has_one :skill_level

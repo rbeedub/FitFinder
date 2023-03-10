@@ -93,6 +93,10 @@ function CreateEvent( { onEventSubmit, user } ) {
                                             <input value={formData.participants} type="number" name="participants" placeholder="participants" onChange={handleFormChange}/>
                                         </div>
                                         <div class="field">
+                                            <label>Image </label>
+                                            <input value= {formData.image} type="text" name="image" placeholder="image" onChange={handleFormChange}/>
+                                        </div>
+                                        <div class="field">
                                             <label>Activity</label>
                                             <select name="activity_id" onChange={handleFormChange}>
                                                 <option value="null">(Select an activity)</option>
@@ -126,7 +130,6 @@ function CreateEvent( { onEventSubmit, user } ) {
         </div>
     {/* </form> */}
 
-    <ErrorMsgList errors={errors} />
     </div>
     </div>
     <div class="column">

@@ -7,7 +7,7 @@ import EventCommentForm from "./EventCommentForm";
 import PeopleContainer from "./PeopleContainer";
 import Respondants from "./Respondants"
 
-function EventDetailsContainer({ onFormSubmit, removeFromEvents, user, event_name, date_time, description, participants, location_name,location_zip, host_id, activity, host, event, setEvent, setUser }) {
+function EventDetailsContainer({ onFormSubmit, removeFromEvents, user, event_name, date_time, description, participants, location_name,location_zip, host_id, activity, host, event, setEvent, setUser, image }) {
 
 
     const [formData, setFormData] = useState({})
@@ -15,6 +15,11 @@ function EventDetailsContainer({ onFormSubmit, removeFromEvents, user, event_nam
     const history = useHistory()
     const { id } = useParams()
     const [isClicked, setIsClicked] = useState(false)
+
+
+    const newDate = new Date(date_time)
+    const dateString = newDate.toLocaleDateString()
+    const timeString = newDate.toLocaleTimeString([],{ hour: "2-digit", minute: "2-digit" })
 
     // useEffect(()=>{
     //     setFormData({
@@ -109,10 +114,10 @@ return(
     <div class="column">
         <br></br>
         <br></br>
-    <img class="ui fluid image" src="https://m.media-amazon.com/images/M/MV5BOTZjNjQzZDAtYzUyNi00YzE5LTk5MmMtZGY1NzVkYzRlMGQ4XkEyXkFqcGdeQXVyMTkxNjUyNQ@@._V1_.jpg"/>
+    <img class="ui fluid image" src={image}/>
     </div>
     <div class="column">
-    <h4 class="ui header">Date / Time: </h4> {date_time}
+    <h4 class="ui header">Date / Time: </h4> {`${dateString} / ${timeString}`}
     <br></br>
     <h4 class="ui header">Location:</h4> {location_name}
     <br></br>

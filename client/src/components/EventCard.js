@@ -14,7 +14,6 @@ return (
 <div class="teal card">
 <div class="content">
     <div class = "header">
-    <div class="ui horizontal pink label">{`${activity.activity}`} <div class="detail">{skill_level.skill_level}</div></div>
 
     <div class="event_name"><h2>{event_name}</h2></div>
     </div>
@@ -43,13 +42,18 @@ return (
     <span class="date_time"><h5 class= "ui header">
     Date: </h5> {`${dateString}`}
     </span>
+    <br></br>
+    <br></br>
     <span class="date_time"><h5 class= "ui header">
     Time: </h5> {`${timeString}`}
     </span>
-    <a class="ui teal right ribbon label">{participants} participants</a>
+    <div>
+    <div class="ui teal right ribbon label"><div>{participants} participants</div></div>
+    <div class="ui pink right ribbon label">{`${activity.activity}`} <div class="detail">level: {skill_level?.skill_level}/10</div></div>
+    </div>
 </div>
 
-< NavLink to={`/event_details/${id}`}> <button class="ui button"> Details </button> </NavLink>
+< NavLink to={`/event_details/${id}`}> <button class="fluid ui button"> Details </button> </NavLink>
 
 </div>
 {/* <div>
