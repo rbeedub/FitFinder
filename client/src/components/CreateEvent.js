@@ -11,6 +11,18 @@ function CreateEvent( { onEventSubmit, user } ) {
     const [activities, setActivities] = useState([])
     const history = useHistory()
 
+    const activityDefault = <option key={0} value={null}>--Select an activity--</option>
+    const skillDefault = <option key={0} value={null}>{"--Select a skill level (1=Beginner, 10=Expert) --"}</option>
+
+    const activityOptions = activities?.map(a => {
+        return <option key={a.id} value={a.id} name={a.activity}>{a.activity}</option>
+    })
+
+    const skillOptions = [1,2,3,4,5,6,7,8,9,10].map(s => {
+        return <option key={s} value={s}>{s}</option>
+    })
+
+
     useEffect(()=>{
         fetch('/activities')
         .then(res => res.json())
@@ -36,6 +48,7 @@ function CreateEvent( { onEventSubmit, user } ) {
                 r.json().then(event => {
                     onEventSubmit(event)
                     setFormData({})
+                    // handleSubmitActivity(event.id)
                     history.push(`/event_details/${event.id}`)
                 })
             } else {
@@ -46,6 +59,26 @@ function CreateEvent( { onEventSubmit, user } ) {
         // .then(setFormData(initialData))
         // .catch(err => setErrors(err.errors))
     }
+
+    // function handleSubmitActivity(event_id){
+    //     fetch("/skill_levels",{
+    //         method: "POST",
+    //         headers: {
+    //             "Content-Type": "application/json"
+    //         },
+    //         body: JSON.stringify({
+    //             event_id: event_id,
+    //             activity_id: Number(formData.activity_id),
+    //             skill_level: Number(formData.skill)
+    //         })
+    //     })
+    //     .then(r => {
+    //         if(r.ok){
+    //             r.json().then((res)=>{
+    //             })
+    //         }
+    //     })
+    // }
 
     return (
  <>
@@ -93,8 +126,23 @@ function CreateEvent( { onEventSubmit, user } ) {
                                             <input value={formData.participants} type="number" name="participants" placeholder="participants" onChange={handleFormChange}/>
                                         </div>
                                         <div class="field">
+                                            <label>Image </label>
+                                            <input value= {formData.image} type="text" name="image" placeholder="image" onChange={handleFormChange}/>
+                                        </div>
+                                        <div class="field">
+                                            
+
+
                                             <label>Activity</label>
-                                            <select name="activity_id" onChange={handleFormChange}>
+                                            <select name="activity_id" value={formData.activity} onChange={handleFormChange}> 
+                                                {activityDefault}
+                                                {activityOptions}
+                                            </select>
+                                            <select name="skill_level" value={formData.skill_level} onChange={handleFormChange}>
+                                                {skillDefault}
+                                                {skillOptions}
+                                            </select>
+                                            {/* <select name="activity_id" onChange={handleFormChange}>
                                                 <option value="null">(Select an activity)</option>
                                                 {activities?.map(a => {
                                                         return (
@@ -104,7 +152,7 @@ function CreateEvent( { onEventSubmit, user } ) {
                                                         )
                                                     })
                                                 }
-                                            </select>
+                                            </select> */}
                                         </div>
                                     </div>
                                     <button class="ui pink button" type="submit">Submit</button>
@@ -126,7 +174,6 @@ function CreateEvent( { onEventSubmit, user } ) {
         </div>
     {/* </form> */}
 
-    <ErrorMsgList errors={errors} />
     </div>
     </div>
     <div class="column">

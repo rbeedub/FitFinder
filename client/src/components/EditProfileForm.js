@@ -9,6 +9,7 @@ function EditProfileForm({ user, setUser, activities }) {
     const [formData, setFormData] = useState(user)
     const [errors, setErrors] = useState([])
     const [profileUpdated, setProfileUpdated] = useState(false)
+    const [activitySelections, setActivitySelections]=useState(formData?.activities.map(obj=> [obj.id, obj.skill_level, true]))
     let history = useHistory()
 
     function handleFormSubmit(e){
@@ -37,6 +38,7 @@ function EditProfileForm({ user, setUser, activities }) {
                 })
             }
         })
+        .then(handleSubmitActivities)
     }
 
     function handleDeleteAccount(e){
@@ -52,6 +54,35 @@ function EditProfileForm({ user, setUser, activities }) {
     function handleFormChange(e){
         const newData = {...formData, [e.target.name]: e.target.value}
         setFormData(newData)
+    }
+
+    const activityLookup = Object.fromEntries(activities.map(obj => [obj.id, obj.activity]))
+    console.log("activityLookup", activityLookup)
+
+    function handleSubmitActivities(){
+        const viableSelections = activitySelections.filter(arr=> arr.every((elem)=>!!elem))
+        // const newActivities = viableSelections.map(arr => {return {id: arr[0], skill_level: arr[1], activity: activityLookup[arr[0]]}}) 
+        fetch('/skill_levels', {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                activity_ids: viableSelections.map(arr=> arr[0]),
+                user_id: user.id,
+                skill_levels: viableSelections.map(arr=> arr[1])
+            })
+        })
+        .then(r => {
+            if(r.ok){
+                r.json().then((res) => {
+                    setUser(res)
+                    // const newUsers = users.map(userObj => userObj.id === user.id ? res : userObj)
+                    // console.log(newUsers) 
+                })
+            }
+        })
+    
     }
 
     return(
@@ -100,7 +131,11 @@ function EditProfileForm({ user, setUser, activities }) {
                                         <label>Photo</label>
                                         <input value= {formData.photo} type="text" name="photo" placeholder="photo" onChange={handleFormChange}  />
                                     </div>
-                                    <ActivitySelectorForm activities={activities} formData={formData} setFormData={setFormData}/>
+                                    <ActivitySelectorForm 
+                                        activities={activities} 
+                                        activitySelections={activitySelections}
+                                        setActivitySelections={setActivitySelections}    
+                                    />
                     
                                 </div>
                                 <button class="ui teal button" type="submit">Submit Edit</button>

@@ -58,12 +58,7 @@ function App() {
   }
 
 
-  function onFormSubmit(editedEvent){
-    //console.log(`edit me!`)
-  const newEvent = events.map((event) => event.id == editedEvent.id ? editedEvent : event )
-    setEvents(newEvent)
-    //console.log(editedEvent)
-  }
+  
 
   function removeFromEvents(idObj){
     //console.log(`Delete me!`)
@@ -118,7 +113,8 @@ function App() {
               removeFromEvents={removeFromEvents}
               user={user}
               setUser={setUser}
-              onFormSubmit={onFormSubmit}
+              // onFormSubmit={onFormSubmit}
+              setEvents={setEvents}
             />
           </Route>
 

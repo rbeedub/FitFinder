@@ -20,8 +20,8 @@ function Events({ events, setEvents }) {
   let sortedEvents = events
   if(searchCriteria == 'date'){
     sortedEvents = [...events].sort((p1, p2) => p1.date_time < p2.date_time ? -1 : 1)
-  } else if(searchCriteria == 'name'){
-    sortedEvents = [...events].sort((p1, p2) => p1.event_name - p2.event_name )
+  } else if(searchCriteria == 'activity'){
+    sortedEvents = [...events].sort((p1, p2) => p1.activity.activity < p2.activity.activity ? -1 : 1)
   } else if(searchCriteria == 'city'){
     sortedEvents = [...events].sort((p1, p2) => p1.location_name < p2.location_name ? -1 : 1)
   } else if(searchCriteria == 'participants'){
