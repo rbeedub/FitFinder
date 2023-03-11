@@ -8,7 +8,7 @@ import { useState, useEffect } from "react"
 
 
 
-function EventDetails( {user, onFormSubmit, removeFromEvents, event_name, date_time, description, participants, location_name,location_zip, host_id, activity, setUser} ) {
+function EventDetails( {user, events, setEvents, removeFromEvents, event_name, date_time, description, participants, location_name,location_zip, host_id, activity, setUser} ) {
 
     const [event, setEvent] = useState({})
     const{id} = useParams()
@@ -19,6 +19,12 @@ function EventDetails( {user, onFormSubmit, removeFromEvents, event_name, date_t
         .then(res => (setEvent(res)))
     },[])
 
+    function onFormSubmit(editedEvent){
+        //console.log(`edit me!`)
+      const newEvent = events.map((event) => event.id == editedEvent.id ? editedEvent : event )
+        setEvents(newEvent)
+        //console.log(editedEvent)
+    }
     console.log("event", event)
     // console.log("event host", event.host)
     // console.log("event host name", event.host.name)

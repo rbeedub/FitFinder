@@ -13,16 +13,19 @@ class EventsController < ApplicationController
 
     def create
         event = Event.create!(event_params)
+        SkillLevel.create!(skillable: event, skill_level: params[:skill_level])
         render json: event, status: :created
     end
 
     def update
         @event.update!(event_params)
+        skill_level = SkillLevel.find_by!(skillable: @event)
+        skill_level.update!(skill_level: params[:skill_level])
         render json: @event, status: :accepted
     end
 
     def destroy
-        @event.delete
+        @event.destroy
         head :no_content
     end
 

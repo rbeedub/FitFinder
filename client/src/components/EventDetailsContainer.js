@@ -15,7 +15,29 @@ function EventDetailsContainer({ onFormSubmit, removeFromEvents, user, event_nam
     const history = useHistory()
     const { id } = useParams()
     const [isClicked, setIsClicked] = useState(false)
+    const [activities, setActivities] = useState([])
 
+    useEffect(()=>{
+        fetch('/activities')
+        .then(r => {
+            if(r.ok){
+                r.json().then(data=> setActivities(data))
+            }
+        })
+    }, [])
+
+
+
+    const activityDefault = <option key={0} value={null}>--Select an activity--</option>
+    const skillDefault = <option key={0} value={null}>{"--Select a skill level (1=Beginner, 10=Expert) --"}</option>
+
+    const activityOptions = activities?.map(a => {
+        return <option key={a.id} value={a.id} name={a.activity}>{a.activity}</option>
+    })
+
+    const skillOptions = [1,2,3,4,5,6,7,8,9,10].map(s => {
+        return <option key={s} value={s}>{s}</option>
+    })
 
     const newDate = new Date(date_time)
     const dateString = newDate.toLocaleDateString()
@@ -74,7 +96,8 @@ function handleFormSubmit(e){
     body: JSON.stringify(formData),
     })
     .then(res => res.json())
-    .then(onFormSubmit)
+    .then(setEvent)
+    // .then(onFormSubmit)
 
 }
 // const yesIds = event?.responses?.filter(r => r=="yes").map(r=>r.user_id)
@@ -159,7 +182,8 @@ return(
   : null }
   {user.id == host?.id ?
   <button class="ui teal button" onClick={() => {
-    setFormData(event)
+    const newFormData = {...event, activity_id: event.activity.id, skill_level: event.skill_level.skill_level}
+    setFormData(newFormData)
     setIsClicked(!isClicked)}} >Edit</button>: null}
 </div>
 {/* {user.id == host?.id ? <button class="ui teal button" onClick={() => {
@@ -205,6 +229,17 @@ return(
                             <div class="field">
                                 <label>Number of Participants</label>
                                 <input value={formData.participants} type="number" name="participants" onChange={onFormChange} />
+                            </div>
+                            <div class="field">
+                                <label>Activity</label>
+                                <select name="activity_id" value={formData.activity_id} onChange={onFormChange}> 
+                                    {activityDefault}
+                                    {activityOptions}
+                                </select>
+                                <select name="skill_level" value={formData.skill_level} onChange={onFormChange}>
+                                    {skillDefault}
+                                    {skillOptions}
+                                </select>
                             </div>
                         </div>
                         <button class="ui teal button" type="submit">Submit</button>

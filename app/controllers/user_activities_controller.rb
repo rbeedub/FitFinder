@@ -8,7 +8,7 @@ class UserActivitiesController < ApplicationController
     end
 
     def destroy
-        @user_activity.delete
+        @user_activity.destroy
         head :no_content
     end
 

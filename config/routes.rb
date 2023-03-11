@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :skill_levels, only: [:show, :create, :update]
+  resources :skill_levels, only: [:index, :show, :create, :update]
   resources :user_activities, only: [:create, :destroy]
   resources :activities, only: [:index, :show]
   resources :events
